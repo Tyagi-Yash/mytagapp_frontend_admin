@@ -1,0 +1,2367 @@
+@charset "utf-8";
+@import url("bootstrap.min.css");
+/* @import url('custom.css'); */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 13px;
+  color: #3a3a3a;
+  font-weight: 400;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clr,
+.clear {
+  clear: both;
+}
+
+header,
+footer,
+aside,
+article,
+section,
+detail,
+nav,
+figure {
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul {
+  padding-left: 0 !important;
+}
+a {
+  text-decoration: none !important;
+  outline: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none !important;
+  outline: none;
+}
+
+img {
+  border: 0;
+  outline: none;
+  max-width: 100%;
+}
+
+input[type="text"],
+input[type="password"],
+select,
+textarea,
+input[type="button"] {
+  max-width: 100%;
+}
+
+table {
+  width: 100%;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+.fltL {
+  float: left;
+}
+.fltR {
+  float: right;
+}
+.padding_none {
+  padding: 0 !important;
+}
+.border_none {
+  border: none !important;
+}
+.navbar-toggle {
+  background-color: #fff !important;
+}
+.icon-bar {
+  background-color: #000 !important;
+}
+.p_right0 {
+  padding-right: 0px !important;
+}
+.p_left0 {
+  padding-left: 0px !important;
+}
+
+input[type="date"] {
+  text-transform: uppercase !important;
+}
+
+.Flex {
+  display: flex;
+}
+
+.Green {
+  color: #37a713;
+}
+.Red {
+  color: #e21818;
+}
+.Blue {
+  color: #139bbf;
+}
+.Yellow {
+  color: #feca05;
+}
+
+.fa-flag {
+  color: red;
+  font-size: 14px;
+  margin: 0 0 0 5px;
+}
+
+.text-undeline {
+  text-decoration: underline;
+}
+:root {
+  --brandColor: #ffbf43;
+  --primaryColor: #2751ff;
+  --black: #000;
+}
+.fw-500 {
+  font-weight: 500;
+}
+/* .Button.Reset{padding: 10px 20px;margin-right: 5px;}
+.Button{border:none;padding: 10px 40px;text-align: center;transition:0.5s all ease-in-out;font-weight:500;display: inline-block;position:relative;background-color: #3a3d3d;font-size:15px;color:#fff;text-transform:capitalize;letter-spacing:.5px;border-radius: 5px;outline: 0;width: 100%;}
+.Button:hover{background-color: #ce9d04;color: #fff;} */
+
+.CheckBox {
+  display: inline-block;
+  position: relative;
+  padding-left: 33px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-weight: 500;
+  color: #2d2d2d;
+  margin: 0;
+  min-height: 20px;
+}
+.CheckBox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.CheckBox .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 24px;
+  background-color: transparent;
+  border: 1px solid #484847;
+  border-radius: 2px;
+}
+.CheckBox:hover input ~ .checkmark {
+  background-color: #484847;
+  border-color: #484847;
+}
+.CheckBox input:checked ~ .checkmark {
+  background-color: #484847;
+}
+.CheckBox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 8px;
+  top: 2px;
+  width: 5px;
+  height: 11px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.CheckBox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.Switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 22px;
+  margin: 0 5px 0 0;
+  border-radius: 50px;
+}
+.Switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.Switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+  width: 40px;
+  min-width: auto;
+  border: 1px solid rgb(210, 197, 224);
+}
+.Switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #ffbf43;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+.Switch input:checked + .slider {
+  background-color: #ffbf43;
+}
+.Switch input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+.Switch input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(17px);
+  background-color: #fff;
+}
+
+.LoginArea {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f8fe;
+}
+.LoginArea .LoginBox {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  height: 375px;
+  padding: 0 100px;
+  border-radius: 10px;
+  justify-content: center;
+}
+.LoginArea .LoginBox .LoginLeft {
+  background-color: #fff;
+  padding: 65px 50px;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 10px;
+}
+.LoginArea .LoginBox .LoginLeft h2 {
+  margin: 0 0 10px 0;
+  text-align: center;
+  font-weight: 700;
+}
+.LoginArea .LoginBox .LoginLeft h2 span {
+  color: #e3c214;
+}
+.LoginArea .LoginBox .LoginLeft h3 {
+  text-align: center;
+  margin: 0 0 14px 0;
+  font-size: 17px;
+}
+.LoginArea .LoginBox .LoginLeft h3 span {
+  color: #ffbf43;
+  border-bottom: 2px solid #ffbf43;
+  padding: 0 0 6px 0;
+  display: inline-block;
+}
+.LoginArea .LoginBox .LoginLeft h4 {
+  font-size: 13px;
+  margin: 0 0 20px 0;
+  font-weight: 500;
+  text-align: center;
+  line-height: 21px;
+  color: #000;
+}
+.LoginArea .LoginBox .LoginLeft .form-group {
+  position: relative;
+  margin: 0 0 20px 0;
+}
+.LoginArea .LoginBox .LoginLeft .form-group label {
+  font-weight: 500;
+  color: #17222c;
+  font-size: 14px;
+  display: block;
+  margin: 0 0 5px 0;
+}
+.LoginArea .LoginBox .LoginLeft .form-group label sup {
+  color: #cc0909;
+  font-size: 18px;
+  top: -2px;
+}
+.LoginArea .LoginBox .LoginLeft .form-group .form-control {
+  box-shadow: none;
+  border: 1px solid #d4d4d4;
+  border-radius: 30px;
+  height: 50px;
+  padding: 0 20px 0 50px;
+  font-size: 14px;
+}
+.LoginArea .LoginBox .LoginLeft .form-group .Icon {
+  position: absolute;
+  left: 15px;
+  z-index: 100;
+  top: 41px;
+  color: #000;
+}
+.LoginArea .LoginBox .LoginLeft .form-group .icon {
+  line-height: 34px;
+  position: absolute;
+  right: 15px;
+  z-index: 100;
+  top: 34px;
+  color: #000;
+}
+.LoginArea .LoginBox .LoginLeft .Checkboxs {
+  margin: 0 0 20px 0;
+}
+.LoginArea .LoginBox .LoginLeft .Checkboxs a {
+  color: #4368ff;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 0;
+  float: right;
+}
+.LoginArea .LoginBox .LoginLeft .Checkboxs a:hover {
+  color: #006ce0;
+}
+
+.LoginArea .LoginBox .LoginLeft .form-group .OTPBox {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 10px 0;
+}
+.LoginArea .LoginBox .LoginLeft .form-group .OTPBox .form-control {
+  padding: 0;
+  text-align: center;
+  width: 60px;
+  height: 55px;
+  font-size: 22px;
+  font-weight: 500;
+  color: #000;
+  line-height: 30px;
+  border-radius: 5px;
+}
+
+.LoginArea .LoginBox .SuccessBox {
+  min-width: 525px;
+  text-align: center;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 100px 50px;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 10px;
+  margin: 0px auto;
+}
+/* .LoginArea .LoginBox .SuccessBox aside{} */
+.LoginArea .LoginBox .SuccessBox span {
+  width: 100px;
+  display: block;
+  margin: 0 auto 20px;
+}
+.LoginArea .LoginBox .SuccessBox h3 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 17px 0;
+  color: #000;
+}
+.LoginArea .LoginBox .SuccessBox h5 {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0 0 20px 0;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+.LoginArea .LoginBox .SuccessBox a {
+  display: inline-block;
+  padding: 15px 40px;
+  background: #ffbf43;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.LoginArea .LoginBox .LoginLeft button,
+.LoginArea .LoginBox .LoginLeft a.Login {
+  border: none;
+  padding: 13px 40px;
+  text-align: center;
+  transition: 0.5s all ease-in-out;
+  font-weight: 500;
+  display: block;
+  position: relative;
+  background-color: #ffbf43;
+  font-size: 15px;
+  color: #fff;
+  text-transform: capitalize;
+  width: 100%;
+  border-radius: 30px;
+}
+/* .LoginArea .LoginBox .LoginLeft button:hover,
+.LoginArea .LoginBox .LoginLeft a.Login:hover{background: linear-gradient(180deg, #5173FF 0%, #4368FF 100%);} */
+.LoginArea .LoginBox .LoginRight {
+  background-color: #d3d5dc;
+  width: 50%;
+  display: none;
+}
+.LoginArea .LoginBox .LoginRight figure {
+  width: 170px;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  text-align: center;
+}
+.LoginArea .LoginBox .LoginRight h5 {
+  text-align: center;
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  line-height: 38px;
+}
+.LoginArea .LoginBox .LoginRight h5 span {
+  display: block;
+  color: #9f9124;
+  font-size: 32px;
+}
+.LoginArea .LoginBox .LoginRight h6 {
+  text-align: center;
+  margin: 0 0 30px;
+  font-size: 13px;
+  color: #565656;
+  font-weight: 500;
+  line-height: 19px;
+}
+
+.WrapperArea {
+  margin-left: 235px;
+  flex: 1 1 auto;
+  width: calc(100% - 235px);
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  transition: 0.5s all ease-in-out;
+}
+.WrapperArea .WrapperBox {
+  padding: 20px;
+  background-color: #f5f8fe;
+  min-height: calc(100vh - 60px);
+}
+
+.Small-Wrapper {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #dcdcdc;
+  margin: 0 0 20px 0;
+}
+.Small-Wrapper + .Small-Wrapper {
+  margin-top: 30px;
+}
+
+.Dashboard {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 4px solid #ffbf43;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  margin: 0 0 30px 0;
+  min-height: 130px;
+}
+.Dashboard figure {
+  width: 50px;
+  height: 50px;
+  background: #ffbf43;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Dashboard figure img {
+  width: 20px;
+  filter: brightness(0) invert(1);
+}
+.Dashboard figure i {
+  color: #fff;
+  font-size: 18px;
+}
+.Dashboard figcaption {
+  width: calc(100% - 50px);
+  padding: 0 0 0 10px;
+}
+.Dashboard figcaption h4 {
+  font-size: 16px;
+  margin: 0 0 8px 0;
+  line-height: 23px;
+}
+.Dashboard figcaption h2 {
+  font-size: 23px;
+}
+
+.Header {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  z-index: 9;
+}
+.Header .Logo {
+  width: 235px;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 20px 0;
+  float: left;
+  height: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+.Header .Logo img {
+  width: 80px;
+}
+.Header .Navigation {
+  transition: all 0.2s ease;
+  margin-left: 235px;
+  padding: 7px 3.2rem;
+  width: calc(100% - 235px);
+  text-align: right;
+  height: 60px;
+}
+.Header .Navigation .Avater {
+  margin: 5px 0 5px 30px;
+  position: relative;
+  display: inline-block;
+}
+.Header .Navigation .Avater a {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #000;
+}
+.Header .Navigation .Avater a figure {
+  width: 35px;
+  border-radius: 50%;
+  margin: 0 15px 0 0;
+  overflow: hidden;
+}
+.Header .Navigation .Avater ul {
+  right: 0;
+  left: auto;
+  top: 100px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s all ease-in-out;
+  position: absolute;
+  box-shadow: 0 1px 4px #ddd;
+  background-color: #fff;
+}
+.Header .Navigation .Avater ul li {
+  margin: 0;
+  border-bottom: 1px solid #d2d3d4;
+}
+.Header .Navigation .Avater ul li:first-child {
+  background-image: linear-gradient(45deg, #3e4040, #a0a0a0);
+  position: relative;
+  padding: 15px 10px 15px 60px;
+  text-align: left;
+  border-bottom: 1px solid #fff;
+}
+.Header .Navigation .Avater ul li figure {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  border: 2px solid #fff;
+  overflow: hidden;
+}
+.Header .Navigation .Avater ul li h4 {
+  color: #fff;
+  font-size: 17px;
+  line-height: 18px;
+}
+.Header .Navigation .Avater ul li h4 span {
+  font-size: 11px;
+  font-weight: 400;
+}
+.Header .Navigation .Avater ul li a {
+  color: #4e4e4e;
+  padding: 10px 20px;
+  font-weight: 400;
+  transition: 0.5s all ease-in-out;
+}
+.Header .Navigation .Avater ul li a span {
+  margin: 0 10px 0 0;
+}
+.Header .Navigation .Avater ul li a:hover {
+  background-color: var(--brandColor);
+  color: #fff;
+}
+.Header .Navigation .Avater:hover ul {
+  opacity: 1;
+  visibility: visible;
+  top: 115%;
+}
+
+::-webkit-scrollbar-track {
+  background: #bbb;
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ffbf43;
+  border-radius: 0;
+  transition: background-color 0.2s linear, width 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s linear, width 0.2s ease-in-out;
+}
+::-webkit-scrollbar {
+  width: 7px;
+  border-radius: 0;
+}
+
+.SidenavBar {
+  height: calc(100% - 60px);
+  position: fixed;
+  width: 235px;
+  top: 60px;
+  padding: 0;
+  overflow: auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.SidenavBar ul {
+  margin: 0;
+}
+.SidenavBar ul li {
+  margin: 0;
+}
+.SidenavBar ul li a {
+  display: block;
+  cursor: pointer;
+  padding: 13px 20px 13px 45px;
+  font-size: 13px;
+  text-transform: capitalize;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+  color: black;
+  font-weight: 400;
+}
+.SidenavBar ul li a span {
+  font-size: 15px;
+  display: inline-block;
+  position: absolute;
+  top: 13px;
+  left: 20px;
+}
+.SidenavBar ul li .dropdown button.dropdown-toggle {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 500;
+  outline: 0;
+}
+.SidenavBar ul li .dropdown ol.dropdown-menu {
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  float: none;
+  position: relative;
+}
+.SidenavBar ul li .dropdown ol.dropdown-menu li a {
+  padding: 13px 20px 13px 51px;
+  white-space: inherit;
+}
+.SidenavBar ul li.active a,
+.SidenavBar ul li a:hover {
+  /* background-color: var(--brandColor); */
+  background: linear-gradient(180deg, #5173ff 0%, #4368ff 100%);
+  color: #fff;
+  font-weight: 500;
+}
+.SidenavBar ul li a.active {
+  /* background-color: var(--brandColor); */
+  background: linear-gradient(180deg, #5173ff 0%, #4368ff 100%);
+  color: #fff;
+  font-weight: 500;
+}
+.SidenavBar ul li.active button.dropdown-toggle {
+  background-color: #fff;
+  color: #3e4040;
+}
+.SidenavBar ul li.active .dropdown ol.dropdown-menu li a {
+  background-color: #eaeaea;
+  color: #3e4040;
+}
+
+.Small-Wrapper .FilterArea {
+  margin: 0;
+}
+.FilterArea {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: baseline;
+}
+.FilterArea .form-group {
+  margin: 0 5px 0px 0;
+  display: inline-block;
+}
+.FilterArea .form-group:last-child {
+  margin: 0 0 0px 0;
+}
+.FilterArea .form-group label {
+  display: block;
+  font-weight: 500;
+  font-size: 13px;
+  color: #000;
+  margin: 0 0 5px 0;
+}
+.FilterArea .form-group .form-control {
+  height: 42px;
+  line-height: 25px;
+  padding: 8px 10px;
+  border: 1px solid #cbcaca;
+  font-size: 13px;
+  margin: 0 10px 0 0;
+  box-shadow: none;
+  color: #3e3d3d;
+  font-weight: 500;
+  border-radius: 5px;
+  appearance: auto;
+}
+
+.FilterArea .FilterRight a.TitleLink {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: var(--brandColor);
+  display: inline-block;
+  margin: 0 0 0 10px;
+  cursor: pointer;
+}
+.FilterArea .FilterRight a.TitleLink i {
+  margin-right: 5px;
+}
+.FilterArea .FilterRight a.TitleLink:hover {
+  background-color: var(--brandColor);
+}
+.FilterArea .FilterRight a.TitleLink span {
+  width: 20px;
+  display: inline-block;
+  height: 20px;
+  background-color: red;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 20px;
+  line-height: 20px;
+  margin: 0 0 0 10px;
+}
+a.TitleLink.Back {
+  background-color: transparent !important;
+  border: 1px solid rgba(39, 81, 255, 1);
+  color: rgba(39, 81, 255, 1) !important;
+  padding: 8px 20px !important;
+}
+
+.Button {
+  border: none;
+  padding: 10px 30px;
+  text-align: center;
+  transition: 0.5s all ease-in-out;
+  font-weight: 500 !important;
+  display: inline-block;
+  position: relative;
+  background: linear-gradient(180deg, #5173ff 0%, #4368ff 100%);
+  font-size: 14px !important;
+  color: #fff !important;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  border-radius: 5px;
+  outline: 0 !important;
+  box-shadow: none;
+}
+.Button:hover {
+  background-position: 0px 80px;
+  color: #fff;
+}
+.Button.Cancel {
+  background: #d9d9d9;
+  color: #000 !important;
+  margin: 0 0px 0 5px;
+  padding: 10px 20px;
+}
+
+.seeAllJobs {
+  position: absolute;
+  background-color: linear-gradient(180deg, #5173ff 0%, #4368ff 100%);
+  right: 20px;
+  font-weight: 500;
+}
+
+.heading {
+  font-size: 22px;
+  color: #222e50;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.user-body .Dashboard {
+  background-color: #ffffff;
+}
+.user-body .Dashboard figure img {
+  filter: none;
+  border-radius: 50%;
+  width: 40px;
+}
+.user-body .Dashboard figure {
+  margin: 0;
+}
+.user-body .Dashboard figcaption {
+  display: flex;
+}
+.user-body .Dashboard figcaption h4 {
+  color: black;
+  margin: 0;
+}
+.user-body .Dashboard a {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.user-body .Dashboard figcaption h2 {
+  font-size: 20px;
+  margin: 0px 0px 0px 30px;
+  color: #55aae0;
+  font-weight: 600;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+.form-group label {
+  color: black;
+  font-size: 13px;
+  font-weight: 600;
+}
+.form-control {
+  font-size: 13px;
+}
+.form-control:focus {
+  box-shadow: none;
+  border: black;
+}
+
+.TableList.whiteSpaceTable table th,
+.TableList.whiteSpaceTable table td {
+  white-space: nowrap;
+}
+
+.TableList {
+  overflow: auto;
+}
+/* .TableList::-webkit-scrollbar-track{} */
+.TableList::-webkit-scrollbar-thumb {
+  background: #ffbf43;
+  transition: 0.5s all ease-in-out;
+  border-radius: 10px;
+  display: none;
+  transition: background-color 0.2s linear, width 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s linear, width 0.2s ease-in-out;
+}
+.TableList::-webkit-scrollbar {
+  width: 4px;
+  border-radius: 20px;
+  height: 5px;
+}
+.TableList:hover::-webkit-scrollbar-thumb {
+  display: block;
+}
+.TableList table {
+  margin: 0 0 10px 0;
+}
+.TableList table tr th {
+  background-color: #fff;
+  font-weight: 500;
+  color: #000;
+  font-size: 14px;
+  padding: 15px;
+}
+.TableList table tr td {
+  font-weight: 400;
+  color: #404040;
+  padding: 15px;
+  font-size: 13px;
+}
+.TableList table tr td a {
+  margin: 0 7px;
+}
+.TableList table tr td a:hover {
+  color: #000;
+}
+.TableList table tr th:last-child,
+.TableList table tr td:last-child {
+  text-align: center;
+  min-width: 105px;
+}
+.TableList table tr td:last-child a {
+  color: #545454;
+  margin: 0 5px;
+  font-size: 14px;
+  display: inline-block;
+}
+.TableList table tr td:last-child a:hover {
+  color: #000;
+}
+
+.TableList table tr:nth-child(even) {
+  font-weight: 500;
+  color: #7c8493;
+  overflow: hidden;
+  border-radius: 11px;
+}
+.TableList table tr:nth-child(even) td {
+  background-color: #fff;
+}
+.TableList table tr:nth-child(even) td:first-child {
+  border-radius: 10px 0 0 10px;
+}
+.TableList table tr:nth-child(even) td:last-child {
+  border-radius: 0px 10px 10px 0px;
+}
+.TableList table tr th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+.TableList table tr th:last-child {
+  border-radius: 0px 10px 10px 0px;
+}
+
+.TableList table tr td span {
+  padding: 6px 10px;
+  color: #fff;
+  border-radius: 5px;
+  width: auto;
+  display: inline-block;
+  text-align: center;
+  font-size: 12px;
+  min-width: 80px;
+}
+.TableList table tr td .Actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.TableList table tr td .Actions button {
+  padding: 6px 15px;
+  color: #fff;
+  border-radius: 25px;
+  width: auto;
+  display: inline-block;
+  text-align: center;
+  font-size: 13px;
+  border: none;
+  font-weight: 700;
+}
+.TableList table tr td .Actions a.Resend {
+  padding: 5px 15px;
+  color: #fff;
+  border-radius: 5px;
+  width: auto;
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  background-color: #fd7325;
+}
+
+.TableList table tr td a.Green {
+  color: #37a713;
+}
+.TableList table tr td a.Red {
+  color: #e21818;
+}
+.TableList table tr td a.Blue {
+  color: #139bbf;
+}
+.TableList table tr td a.Yellow {
+  color: #feca05;
+}
+.TableList table tr td a.Pink {
+  color: #fd546d;
+}
+
+.TableList table tr td span.Green {
+  background-color: #37a713;
+}
+.TableList table tr td span.Blue {
+  background-color: #139bbf;
+}
+.TableList table tr td span.Red {
+  background-color: #bb0f0f;
+}
+.TableList table tr td span.Orange {
+  background-color: #fd813f;
+}
+.TableList table tr td span.Yellow {
+  background-color: #feca05;
+  color: #000;
+}
+.TableList table tr td span.Gray {
+  background-color: #00000040;
+  color: #000000;
+}
+
+.TableList table tr td .Actions button.Green {
+  background-color: #37a713;
+}
+.TableList table tr td .Actions button.Blue {
+  background-color: #139bbf;
+}
+.TableList table tr td .Actions button.Red {
+  background-color: #bb0f0f;
+}
+.TableList table tr td .Actions button.Orange {
+  background-color: #df9919;
+}
+
+.Actions a.Red {
+  color: #e21818;
+}
+
+.Filter {
+  display: flex;
+  align-items: flex-end;
+}
+
+.Filter .form-group {
+  margin: 0px 10px 20px 0px;
+  display: inline-block;
+}
+
+.Filter .form-group:last-child {
+  margin: 0px 0px 20px;
+}
+.Filter .form-group .form-control {
+  height: 42px;
+  line-height: 25px;
+  padding: 8px 10px;
+  border: 1px solid rgb(203, 202, 202);
+  font-size: 12px;
+  margin: 0px 10px 0px 0px;
+  box-shadow: none;
+  color: rgb(62, 61, 61);
+  font-weight: 600;
+  border-radius: 5px;
+  appearance: auto;
+}
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 2px 6px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.pagination a.active {
+  background-color: #ffbf43;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination button {
+  color: black;
+  float: left;
+  padding: 2px 6px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+}
+
+.pagination button.active {
+  background-color: #ffbf43;
+  color: white;
+  border-radius: 5px;
+}
+.paginationMain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.paginationMain select {
+  max-width: 225px;
+  appearance: auto;
+  font-size: 12px;
+}
+
+.CommonTabs {
+  margin-bottom: 20px;
+}
+
+.CommonTabs .nav-tabs {
+  border: none;
+}
+
+.CommonTabs .nav-tabs li {
+  margin: 0px 15px 0px 0px;
+}
+
+.CommonTabs .nav-tabs li a {
+  background-color: #d0cece;
+  border-radius: 5px;
+  padding: 11px 35px;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: capitalize;
+  margin: 0px;
+  font-size: 15px;
+  border: none !important;
+}
+
+.CommonTabs .nav-tabs li a.active {
+  background-color: #222e50;
+  color: rgb(255, 255, 255);
+}
+
+.CommonTabs .nav-tabs li a {
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  cursor: pointer;
+  text-transform: capitalize;
+  margin: 0px;
+  font-size: 14px;
+  border: none !important;
+}
+.TitleBox .Title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.TitleBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.TitleBox a {
+  font-size: 14px;
+  color: black;
+  font-weight: 600;
+}
+
+.Small-Wrapper {
+  border-radius: 10px;
+}
+
+.TitleBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 20px 0;
+}
+.TitleBox h4.Title {
+  margin: 0;
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 20px;
+  color: var(--black);
+}
+.TitleBox h5 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+.TitleBox h5 strong {
+  font-weight: 800;
+}
+.TitleBox a.TitleLink {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: #ffbf43;
+  display: inline-flex;
+  align-items: center;
+}
+.TitleBox button.TitleLink {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: #ffbf43;
+  display: inline-flex;
+  align-items: center;
+  border: none;
+}
+.TitleBox a.TitleLink i {
+  margin-right: 5px;
+}
+.TitleBox a.TitleLink span {
+  width: 20px;
+  display: inline-block;
+  height: 20px;
+  background-color: red;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 20px;
+  line-height: 20px;
+  margin: 0 0 0 10px;
+}
+.TitleBox a.TitleLink:hover {
+  background-color: #ffbf43;
+}
+
+.InformationBox {
+  background-color: #f9f9f9;
+  margin: 0 0 20px 0;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+.InformationBox h3 {
+  font-size: 16px;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  color: #000;
+}
+.InformationBox .Informations {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+.InformationBox .Informations .ProfileInfo {
+  position: relative;
+}
+.InformationBox .Informations .ProfileInfo .Top {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin: 0 0 10px 0;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.InformationBox .Informations .ProfileInfo article {
+  display: flex;
+}
+.InformationBox .Informations .ProfileInfo article aside {
+  width: 50%;
+}
+.InformationBox .Informations .ProfileInfo article aside p {
+  margin: 0 0 13px 0;
+  display: flex;
+}
+.InformationBox .Informations .ProfileInfo article aside p:last-child {
+  margin: 0;
+}
+.InformationBox .Informations .ProfileInfo article aside p strong {
+  font-weight: 600;
+  text-transform: capitalize;
+  width: 190px;
+  display: inline-block;
+  position: relative;
+  margin: 0 15px 0 0;
+  padding: 0 10px 0 0;
+  color: #000;
+  font-size: 13px;
+}
+.InformationBox .Informations .ProfileInfo article aside p strong:after {
+  content: ":";
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.InformationBox .Informations .ProfileInfo article aside p span {
+  font-weight: 500;
+  color: #5e5c5c;
+  font-size: 13px;
+  display: inline-block;
+  width: calc(100% - 190px);
+}
+.InformationBox .Informations .ProfileInfo .seeMoreBtn {
+  font-weight: 500;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 14px;
+  text-decoration: underline;
+}
+.InformationBox .Informations h4 {
+  font-size: 15px;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  color: #000;
+}
+.InformationBox .Informations h4 span {
+  font-size: 14px;
+  margin: 0 0 10px 0;
+  font-weight: 400;
+  color: #000;
+}
+.InformationBox .Informations .jobDescriptions p {
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #5e5c5c;
+  font-size: 13px;
+  display: inline-block;
+  line-height: 24px;
+  margin: 0 0 10px 0;
+}
+.InformationBox .Informations .jobDescriptions .skillsListing {
+  display: flex;
+  flex-wrap: wrap;
+}
+.InformationBox .Informations .jobDescriptions .skillsListing li {
+  margin: 0 10px 10px 0;
+  background-color: #ddd;
+  font-size: 13px;
+  padding: 10px 20px;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+.InformationBox.Height {
+  height: calc(100% - 20px);
+}
+.InformationBox .Informations.Height {
+  height: calc(100% - 30px);
+}
+
+.accordionBox .accordionInfo {
+  position: relative;
+}
+.accordionBox .accordionInfo .Top {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin: 0 0 10px 0;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.accordionBox .accordionInfo article {
+  display: flex;
+}
+.accordionBox .accordionInfo article aside {
+  width: 50%;
+}
+.accordionBox .accordionInfo article aside p {
+  margin: 0 0 13px 0;
+  display: flex;
+}
+.accordionBox .accordionInfo article aside p:last-child {
+  margin: 0;
+}
+.accordionBox .accordionInfo article aside p strong {
+  font-weight: 600;
+  text-transform: capitalize;
+  width: 190px;
+  display: inline-block;
+  position: relative;
+  margin: 0 15px 0 0;
+  padding: 0 10px 0 0;
+  color: #000;
+  font-size: 13px;
+}
+.accordionBox .accordionInfo article aside p strong:after {
+  content: ":";
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.accordionBox .accordionInfo article aside p span {
+  font-weight: 500;
+  color: #5e5c5c;
+  font-size: 13px;
+  display: inline-block;
+  width: calc(100% - 190px);
+}
+.accordionBox .accordionInfo .seeMoreBtn {
+  font-weight: 500;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 14px;
+  text-decoration: underline;
+}
+.accordionBox h4 {
+  font-size: 15px;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  color: #000;
+}
+.accordionBox h4 span {
+  font-size: 14px;
+  margin: 0 0 10px 0;
+  font-weight: 400;
+  color: #000;
+}
+
+.accordionBox .accordions .jobDescriptions p {
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #5e5c5c;
+  font-size: 13px;
+  display: inline-block;
+  line-height: 24px;
+  margin: 0 0 10px 0;
+}
+.accordionBox .accordions .jobDescriptions .skillsListing {
+  display: flex;
+  flex-wrap: wrap;
+}
+.accordionBox .accordions .jobDescriptions .skillsListing li {
+  margin: 0 10px 10px 0;
+  background-color: #ddd;
+  font-size: 13px;
+  padding: 10px 20px;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+.SettingsTabs {
+  margin-bottom: 20px;
+}
+.SettingsTabs .nav-tabs {
+  border: none;
+  margin-bottom: 20px;
+}
+.SettingsTabs .nav-tabs .nav-item {
+  margin: 0 10px 0 0;
+  display: inline-block;
+}
+.SettingsTabs .nav-tabs .nav-item .nav-link {
+  background-color: #d0cece;
+  border-radius: 5px;
+  padding: 10px 25px;
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
+  text-transform: capitalize;
+  margin: 0;
+  font-size: 14px;
+  display: block;
+  border: none;
+}
+.SettingsTabs .nav-tabs .nav-item .nav-link.active {
+  background: linear-gradient(180deg, #5173ff 0%, #4368ff 100%);
+  color: #fff;
+}
+
+.ModalBox .modal-dialog {
+  max-width: 500px;
+  margin: 50px auto;
+}
+.ModalBox .BigModal .modal-dialog {
+  max-width: 800px;
+  margin: 50px auto;
+}
+.ModalBox .modal-dialog .CloseModal {
+  position: absolute;
+  top: -13px;
+  right: -13px;
+  width: 26px;
+  height: 26px;
+  background-color: #fff;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: #000;
+  font-size: 16px;
+  border-radius: 50%;
+  line-height: 22px;
+}
+.ModalBox .modal-dialog .Decline {
+  margin: 0;
+}
+.ModalBox .modal-dialog .Decline h3 {
+  font-weight: 600;
+  font-size: 22px;
+  margin: 0 0 5px;
+  text-align: left;
+}
+.ModalBox .modal-dialog .Decline p {
+  font-size: 15px;
+  color: #777;
+  text-align: left;
+}
+.ModalBox .modal-dialog .Decline h4 {
+  margin: 15px 0 0 0;
+  text-align: right;
+}
+.ModalBox .modal-dialog .Decline h4 a {
+  text-transform: capitalize;
+  margin: 0 0 0 30px;
+  font-size: 17px;
+  color: #49a0d5;
+  font-weight: 400;
+  -webkit-transition: 0.5s all ease-in-out;
+  transition: 0.5s all ease-in-out;
+}
+.ModalBox .modal-dialog .Decline h4 a:hover {
+  color: #000;
+}
+
+.ModalBox .smallModal .modal-dialog {
+  max-width: 350px;
+  margin: 50px auto;
+}
+
+.CommonLinks {
+  margin-bottom: 20px;
+}
+.CommonLinks ul {
+  border: none;
+}
+.CommonLinks ul li {
+  margin: 0 10px 0 0;
+  display: inline-block;
+}
+.CommonLinks ul li a {
+  background-color: #d0cece;
+  border-radius: 5px;
+  padding: 12px 30px;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: capitalize;
+  margin: 0;
+  font-size: 14px;
+  display: block;
+}
+.CommonLinks ul li.active a {
+  background-color: #264191;
+  color: #fff;
+}
+
+.ModalBox .modal-dialog .Category {
+  padding: 10px;
+}
+.ModalBox .modal-dialog .Category h3 {
+  text-align: center;
+  font-weight: 600;
+  margin: 0 0 35px 0;
+  border-bottom: 1px solid #ddd;
+  padding: 0 0 15px;
+  font-size: 22px;
+}
+.ModalBox .modal-dialog .Category h3 span {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 20px;
+}
+.ModalBox .modal-dialog .Category .form-group {
+  margin: 0 0 25px;
+  position: relative;
+}
+.ModalBox .modal-dialog .Category .form-group label {
+  display: inline-block;
+  text-transform: capitalize;
+  font-weight: 500;
+  color: #000;
+  font-size: 13px;
+  background-color: #fff;
+  margin: 0;
+  padding: 6px 10px;
+  position: absolute;
+  top: -18px;
+  left: 10px;
+  border-radius: 5px;
+  z-index: 1;
+}
+.ModalBox .modal-dialog .Category .form-group label.CheckBox {
+  position: relative;
+  top: auto;
+  left: auto;
+  padding: 0 0 0 35px;
+  font-weight: 500;
+  margin: -20px 0 0 0 !important;
+  display: block;
+}
+.ModalBox .modal-dialog .Category .form-group .form-control {
+  box-shadow: none;
+  border: 1px solid #c3c3c3;
+  height: auto;
+  font-size: 13px;
+  color: #000;
+  line-height: 22px;
+  padding: 15px 15px 10px;
+  font-weight: 400;
+  appearance: auto;
+}
+.ModalBox .modal-dialog .Category .form-group textarea.form-control {
+  height: auto;
+}
+.ModalBox .modal-dialog .Category .CategoryMore {
+  text-align: right;
+  margin: -20px 0 20px 0;
+}
+.ModalBox .modal-dialog .Category .CategoryMore a {
+  color: #000;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.ModalBox .modal-dialog .Category .form-group .VehicleSelect ul {
+  display: flex;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+}
+.ModalBox .modal-dialog .Category .form-group .VehicleSelect ul li {
+  display: inline-block;
+  width: 33%;
+  margin: 0;
+}
+.ModalBox .modal-dialog .Category .form-group .VehicleSelect ul li label {
+  margin: 0 !important;
+}
+.ModalBox .modal-dialog .Category .form-group .VehicleSelect ul li ol {
+  padding: 15px 0 0 20px;
+}
+.ModalBox .modal-dialog .Category .form-group .VehicleSelect ul li ol li {
+  display: block;
+  width: 100%;
+  margin: 0 0 15px 0;
+}
+.ModalBox
+  .modal-dialog
+  .Category
+  .form-group
+  .VehicleSelect
+  ul
+  li
+  ol
+  li:last-child {
+  margin: 0;
+}
+
+.CommonForm h4 {
+  font-size: 16px;
+  padding: 15px 20px;
+  background-color: #f1efef;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 20px 0px;
+}
+.CommonForm .form-group {
+  margin: 0 0 20px 0;
+  position: relative;
+}
+/*.CommonForm .form-group .form-group{margin:0 0 0 0}*/
+.CommonForm .form-group label {
+  display: block;
+  color: #000;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: capitalize;
+  margin: 0 0 5px 0;
+}
+.CommonForm .form-group .form-control {
+  height: auto;
+  padding: 10px 10px 10px 15px;
+  border: 1px solid #b3b3b3;
+  border-radius: 5px;
+  box-shadow: none;
+  font-weight: 400;
+  font-size: 14px;
+  display: inline-block;
+  appearance: auto;
+}
+.CommonForm .form-group .UserPlan {
+  display: block;
+  text-align: center;
+}
+.CommonForm .form-group .UserPlan li {
+  display: inline-block;
+  margin: 0 15px;
+}
+.CommonForm .form-group .Avaialable li {
+  display: inline-block;
+  width: 24%;
+  margin: 0 0 15px 0;
+}
+.CommonForm .form-group .ck.ck-editor {
+  margin: 0 0 20px 0;
+}
+.CommonForm .form-group .ck.ck-label.ck-voice-label {
+  display: none;
+}
+.CommonForm .form-group .ck.ck-content.ck-editor__editable {
+  padding: 10px;
+  min-height: 275px;
+}
+
+.SubAdminBox {
+  background-color: #f9f9f9;
+  margin: 0 0 20px 0;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+}
+.SubAdminBox figure {
+  width: 100px;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0;
+  border: 3px solid #fff;
+  box-shadow: 0 0 10px #c1c0c0;
+}
+.SubAdminBox figcaption {
+  width: calc(100% - 100px);
+  padding: 0 0 0 20px;
+}
+.SubAdminBox figcaption p {
+  margin: 0 0 15px 0;
+  display: inline-flex;
+  width: 49%;
+}
+.SubAdminBox figcaption p strong {
+  font-weight: 600;
+  text-transform: capitalize;
+  width: 125px;
+  display: inline-block;
+  position: relative;
+  margin: 0 15px 0 0;
+  padding: 0 10px 0 0;
+  color: #000;
+  font-size: 13px;
+}
+.SubAdminBox figcaption p strong:after {
+  content: ":";
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.SubAdminBox figcaption p span {
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #5e5c5c;
+  font-size: 13px;
+  display: inline-block;
+}
+
+.BusinessPersonal {
+  background-color: #f9f9f9;
+  margin: 0 0 20px 0;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+.BusinessPersonal figure {
+  width: 100px;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0;
+  border: 3px solid #fff;
+  box-shadow: 0 0 10px #c1c0c0;
+}
+.BusinessPersonal figcaption {
+  width: calc(100% - 200px);
+  padding: 0 0 0 15px;
+}
+.BusinessPersonal figcaption h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 10px 0;
+}
+.BusinessPersonal figcaption p {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 10px 0;
+}
+.BusinessPersonal figcaption p:last-child {
+  margin: 0;
+}
+.BusinessPersonal figcaption p i {
+  margin: 0 10px 0 0;
+}
+.BusinessPersonal figcaption h3 i {
+  margin: 0 5px 0 0;
+}
+.BusinessPersonal .Actions a {
+  margin: 0 0 0 10px;
+}
+.BusinessPersonal figcaption p a {
+  margin: 0 0 0 5px;
+  color: #2751ff;
+}
+
+.approveSeller {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: #264191;
+  display: inline-block;
+  margin: 0 10px 0 10px;
+  cursor: pointer;
+}
+
+.multiUsers {
+  display: flex;
+  margin: 0 0 25px 0;
+}
+.multiUsers li {
+  background-color: #d9d9d9;
+  margin: 0 15px 0 0;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 5px;
+  color: #000;
+  position: relative;
+}
+.multiUsers li i {
+  position: absolute;
+  right: -5px;
+  top: -8px;
+  font-size: 18px;
+}
+
+/* .DriverCountList .form-group{padding:20px;border-radius:5px;background-color:#fbfbfb;border:1px solid #ddd;margin:0 0 20px 0}
+.DriverCountList .form-group label{display:block;font-size:14px;font-weight:600;color:#000;margin:0 0 10px 0}
+.DriverCountList .form-group .form-control{height:auto;padding:12px 15px;font-size:14px;font-weight:500;color:#000;box-shadow:none;border:1px solid #ddd}
+.DriverCountList ul{display:flex;flex-wrap:wrap}
+.DriverCountList ul li{width: 32%;margin:0 15px 15px 0}
+.DriverCountList ul li:nth-child(3n){margin:0 0 15px 0}
+.DriverCountList ul li a{background-color:#fbfbfb;border:1px solid #ddd;padding:25px 20px 25px 30px;border-radius:10px;display:flex;align-items:center;color:#000;width:100%;position:relative}
+.DriverCountList ul li a .Icon{width:50px;height:50px;border-radius:50%;position:relative}
+.DriverCountList ul li a .Icon:before{content:'';position:absolute;width:100%;height:100%;background-image:linear-gradient(45deg,#4968a6,transparent);border-radius:5px;transform:rotate(45deg);top:0;left:0}
+.DriverCountList ul li a .Icon img{position:relative;z-index:1}
+.DriverCountList ul li a .Text{font-size:15px;font-weight:600;margin:0 0 0 30px}
+.DriverCountList ul li a .Count{float:right;position:absolute;right:20px;font-size:18px;font-weight:700}
+.DriverCountList ul li a .Badge{width:30px;height:30px;background-color:#df0000;border-radius:50%;text-align:center;line-height:30px;font-weight:700;color:#fff;position:absolute;top:10px;left:60px} */
+
+.DriverCountList .DriverCountBox {
+  background-color: #fbfbfb;
+  border: 1px solid #ddd;
+  padding: 25px 20px 25px 30px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  color: #000;
+  width: 100%;
+  position: relative;
+}
+.DriverCountList .DriverCountBox a .Icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+}
+.DriverCountList .DriverCountBox a .Icon:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(45deg, #4968a6, transparent);
+  border-radius: 5px;
+  transform: rotate(45deg);
+  top: 0;
+  left: 0;
+}
+.DriverCountList .DriverCountBox a .Icon img {
+  position: relative;
+  z-index: 1;
+}
+.DriverCountList .DriverCountBox a .Text {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 0 30px;
+  color: #000;
+}
+.DriverCountList .DriverCountBox .dropdown {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+.DriverCountList .DriverCountBox .dropdown span i {
+  transform: rotate(90deg);
+  font-size: 16px;
+}
+.DriverCountList .DriverCountBox .dropdown .dropdown-menu {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.DriverDeleteBox {
+  background-color: #fbfbfb;
+  border: 1px solid #ddd;
+  padding: 25px 20px 25px 30px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  color: #000;
+  position: relative;
+  float: right;
+  min-width: 325px;
+}
+.DriverDeleteBox .Icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+}
+.DriverDeleteBox .Icon:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(45deg, #4968a6, transparent);
+  border-radius: 5px;
+  transform: rotate(45deg);
+  top: 0;
+  left: 0;
+}
+.DriverDeleteBox .Icon img {
+  position: relative;
+  z-index: 1;
+}
+.DriverDeleteBox .Text {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 0 30px;
+}
+.DriverDeleteBox .Count {
+  float: right;
+  position: absolute;
+  right: 20px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.AdminAccess table {
+  border: 1px solid #e1e1e1;
+  margin-bottom: 0;
+}
+.AdminAccess table tr th {
+  background-color: #e1e1e1;
+  font-weight: 700;
+  color: #000;
+  font-size: 14px;
+  padding: 10px 20px;
+  border: none;
+  border-right: 1px solid #bbb;
+}
+.AdminAccess table tr td {
+  font-weight: 600;
+  color: #404040;
+  padding: 10px 20px;
+  font-size: 13px;
+  border-bottom: 1px solid #ddd;
+  border-top: none;
+  vertical-align: middle;
+  border-right: 1px solid #ddd;
+}
+.AdminAccess table tr td .Read {
+  display: inline-block;
+  position: relative;
+}
+.AdminAccess table tr td .Read input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.AdminAccess table tr td .Read span {
+  font-size: 14px;
+  color: #cdcdcd;
+}
+.AdminAccess table tr td .Read input:checked ~ span {
+  color: #264191;
+}
+.AdminAccess table tr td .Read input:checked ~ span i:before {
+  content: "\f070";
+}
+.AdminAccess table tr td .Access {
+  display: inline-block;
+  position: relative;
+}
+.AdminAccess table tr td .Access input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.AdminAccess table tr td .Access span {
+  font-size: 14px;
+  color: #cdcdcd;
+}
+.AdminAccess table tr td .Access input:checked ~ span {
+  color: #264191;
+}
+.AdminAccess table tr td .Access input:checked ~ span i:before {
+  content: "\f13e";
+}
+.AdminAccess table tr td strong {
+  font-weight: 600;
+  color: #000;
+}
+
+.StaticArea .card {
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.StaticArea .card + .card {
+  margin: 20px 0 0 0;
+}
+.StaticArea .card .card-header {
+  cursor: pointer;
+  background-color: #ffffff;
+  border-radius: 0;
+  padding: 15px 55px 15px 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: none;
+}
+.StaticArea .card .card-header:after {
+  content: "\f107";
+  font-family: FontAwesome;
+  color: #000;
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 14px;
+  transition: 0.5s all ease-in-out;
+}
+.StaticArea .card .card-header[aria-expanded="true"]:after {
+  transform: rotate(180deg);
+}
+.StaticArea .card .card-header h4 {
+  font-size: 14px;
+  color: #000;
+  font-weight: 400;
+}
+.StaticArea .card .card-header h4 span {
+  margin: 0 10px 0px 0;
+}
+.StaticArea .card .card-header a {
+  color: #000;
+  font-size: 14px;
+}
+.StaticArea .card .card-body {
+  padding: 20px;
+}
+.StaticArea .card .card-body:before {
+  content: none;
+}
+.StaticArea .card .card-body p {
+  font-size: 14px;
+  line-height: 28px;
+  font-weight: 400;
+  color: #404040;
+}
+.StaticArea .card .card-body p + p {
+  margin-top: 15px;
+}
+
+.UserMultipleArea .card {
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.UserMultipleArea .card + .card {
+  margin: 20px 0 0 0;
+}
+.UserMultipleArea .card .card-header {
+  cursor: pointer;
+  background-color: #ffffff;
+  border-radius: 0;
+  padding: 15px 55px 15px 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: none;
+  border-bottom: 1px solid #e9e9e9;
+}
+.UserMultipleArea .card .card-header:after {
+  content: "\f107";
+  font-family: FontAwesome;
+  color: #000;
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 14px;
+  transition: 0.5s all ease-in-out;
+}
+.UserMultipleArea .card .card-header[aria-expanded="true"]:after {
+  transform: rotate(180deg);
+}
+.UserMultipleArea .card .card-header h4 {
+  font-size: 16px;
+  color: #000;
+  font-weight: 500;
+}
+.UserMultipleArea .card .card-header h4 span {
+  margin: 0 10px 0px 0;
+}
+.UserMultipleArea .card .card-header a {
+  color: #000;
+  font-size: 14px;
+}
+.UserMultipleArea .card .card-body {
+  padding: 20px;
+}
+.UserMultipleArea .card .card-body:before {
+  content: none;
+}
+
+.logOutArea {
+  text-align: center;
+}
+.logOutArea span {
+  background-color: rgba(255, 191, 67, 0.2);
+  display: inline-block;
+  width: 49px;
+  height: 49px;
+  text-align: center;
+  line-height: 49px;
+  border-radius: 50%;
+  margin: 0 0 15px 0;
+}
+.logOutArea h3 {
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  color: #000;
+  font-size: 28px;
+}
+.logOutArea p {
+  font-size: 16px;
+  margin: 0 0 20px 0;
+}
+.logOutArea h4 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logOutArea h4 .Button:first-child {
+  margin: 0 10px 0 0;
+}
+.logOutArea h4 .Button:last-child {
+  margin: 0 0 0 10px;
+}
+.logOutArea h4 .Button {
+  padding: 14px 30px;
+  margin: 0;
+}
+.logOutArea h4 .Button {
+  width: calc(50% - 10px);
+}
+
+.TableList table tbody tr td .approveBtn {
+  padding: 6px 10px;
+  color: #fff;
+  border-radius: 5px;
+  width: auto;
+  display: inline-block;
+  text-align: center;
+  font-size: 12px;
+  min-width: 80px;
+  background-color: #ffbf43;
+}
+.TableList table tbody tr td .approveBtn:hover {
+  color: #fff;
+}
+
+.flagDetailsBox {
+  background-color: #f9f9f9;
+  margin: 0 0 20px 0;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+.flagDetailsBox h4 {
+  font-size: 16px;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  color: #000;
+}
+.flagDetailsBox .flagDetails {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+.flagDetailsBox .flagDetails .ProfileInfo {
+  position: relative;
+}
+/* .flagDetailsBox .flagDetails .ProfileInfo article{display:flex}
+.flagDetailsBox .flagDetails .ProfileInfo article aside{width:10%} */
+.flagDetailsBox .flagDetails .ProfileInfo article aside p {
+  margin: 0 0 13px 0;
+  display: flex;
+}
+.flagDetailsBox .flagDetails .ProfileInfo article aside p:last-child {
+  margin: 0;
+}
+.flagDetailsBox .flagDetails .ProfileInfo article aside p strong {
+  font-weight: 600;
+  text-transform: capitalize;
+  width: 190px;
+  display: inline-block;
+  position: relative;
+  margin: 0 15px 0 0;
+  padding: 0 10px 0 0;
+  color: #000;
+  font-size: 13px;
+}
+.flagDetailsBox .flagDetails .ProfileInfo article aside p strong:after {
+  content: ":";
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.flagDetailsBox .flagDetails .ProfileInfo article aside p span {
+  font-weight: 500;
+  color: #5e5c5c;
+  font-size: 13px;
+  display: inline-block;
+  width: calc(100% - 190px);
+}
+.flagDetailsBox .flagDetails .ProfileInfo .seeMoreBtn {
+  font-weight: 500;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 14px;
+  text-decoration: underline;
+}
+.flagDetailsBox .flagDetails h4 {
+  font-size: 15px;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  color: #000;
+}
+.flagDetailsBox .flagDetails h4 span {
+  font-size: 14px;
+  margin: 0 0 10px 0;
+  font-weight: 400;
+  color: #000;
+}
+.flagDetailsBox .flagDetails .jobDescriptions p {
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #5e5c5c;
+  font-size: 13px;
+  display: inline-block;
+  line-height: 24px;
+  margin: 0 0 10px 0;
+}
+.flagDetailsBox .flagDetails .jobDescriptions .skillsListing {
+  display: flex;
+}
+.flagDetailsBox .flagDetails .jobDescriptions .skillsListing li {
+  margin: 0 10px 0 0;
+  background-color: #ddd;
+  font-size: 13px;
+  padding: 10px 20px;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+.flagDetailsBox.Height {
+  height: calc(100% - 20px);
+}
+.flagDetailsBox .flagDetails.Height {
+  height: calc(100% - 30px);
+}
