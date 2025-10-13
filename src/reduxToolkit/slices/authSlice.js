@@ -1,56 +1,52 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "../../Utils/axios";
 
-const initialState = {
-  user: {},
-  loader: false,
-  error: null,
-};
-
 export const authLogin = createAsyncThunk(
-  "authSlice/authLogin",
+  "authManagementSlice/authLogin",
   async (payload, { rejectWithValue }) => {
     try {
-      const res = await axios.post("/admin/login", payload);
-      if (res?.status === 200) {
-        window.localStorage.setItem("token", JSON.stringify(res?.data.token));
+      const response = await axios.post("/admin/login", payload);
+
+      if (response.status === 200) {
         return {
-          status: res.status,
-          data: res.data,
+          status: response.status,
+          data: response.data,
         };
+      } else {
+        return rejectWithValue({
+          status: response.status,
+          data: response.data,
+        });
       }
     } catch (error) {
-      return rejectWithValue(
-        error.response?.data?.message || "Something went wrong"
-      );
+      return rejectWithValue({
+        status: err.response?.status || 500,
+        data: err.response?.data || { message: "Network or server error" },
+      });
     }
   }
 );
 
+const initialState = {
+  loader: false,
+};
+
 const authManagementSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {
-    logout: (state) => {
-      (state.user = null),
-        (state.error = null),
-        window.localStorage.removeItem("token");
-    },
-  },
+
   extraReducers: (builder) => {
-    //auth login
-    builder.addCase(authLogin.pending, (state) => {
-      state.loader = true;
-      state.authLogin = {};
-    });
-    builder.addCase(authLogin.fulfilled, (state, action) => {
-      state.loader = false;
-      state.user = action.payload.data;
-    });
-    builder.addCase(authLogin.rejected, (state, action) => {
-      state.loader = false;
-      state.error = action.error.message;
-    });
+    builder
+      //auth login
+      .addCase(authLogin.pending, (state) => {
+        state.loader = true;
+      })
+      .addCase(authLogin.fulfilled, (state, action) => {
+        state.loader = false;
+      })
+      .addCase(authLogin.rejected, (state, action) => {
+        state.loader = false;
+      });
   },
 });
 export default authManagementSlice.reducer;
