@@ -1,0 +1,78 @@
+import { Link } from "react-router-dom";
+import type { User, Pagination } from "../../users/types";
+
+export default function UserTable({
+  data,
+  pagination,
+  onToggleActive,
+  onDeleteClick,
+}: {
+  data: User[];
+  pagination: Pagination;
+  onToggleActive: (id: string, v: boolean) => void;
+  onDeleteClick: (id: string) => void;
+}) {
+  if (!data?.length) {
+    return <div className="TableList">No users found</div>;
+  }
+
+  return (
+    <div className="TableList">
+      <table>
+        <thead>
+          <tr>
+            <th>S.No.</th>
+            <th>User Type</th>
+            <th>Name</th>
+            <th>E-mail address</th>
+            <th>Phone Number</th>
+            <th>Location</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {data.map((u, idx) => {
+            const serial = (pagination.currentPage - 1) * pagination.pageSize + idx + 1;
+            return (
+              <tr key={u.id}>
+                <td>{String(serial).padStart(2, "0")}</td>
+                <td style={{ textTransform: "capitalize" }}>{u.type}</td>
+                <td>
+                  <Link to={`/users`} className="ms-0">
+                    {u.name}
+                  </Link>
+                </td>
+                <td>{u.email}</td>
+                <td>{u.phone ?? "—"}</td>
+                <td>{u.location ?? "—"}</td>
+                <td>
+                  <div className="Actions">
+                    <label className="Switch" title="Active">
+                      <input
+                        type="checkbox"
+                        checked={!!u.status}
+                        onChange={(e) => onToggleActive(u.id, e.target.checked)}
+                      />
+                      <span className="slider" />
+                    </label>
+
+                    <div>
+                      <button
+                        className="Red"
+                        onClick={() => onDeleteClick(u.id)}
+                        aria-label={`Delete ${u.name}`}
+                      >
+                        <i className="fa fa-trash" />
+                      </button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
