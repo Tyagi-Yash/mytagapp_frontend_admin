@@ -169,8 +169,8 @@ export default function ContentUserPostDetails() {
                 style={{ display: "flex", alignItems: "center", gap: 12 }}
               >
                 <img
-                  src={post.user?.avatar ?? "/assets/images/user.png"}
-                  alt=""
+                  src={post.user.profileImage}
+                  alt="profile"
                   style={{ width: 48, height: 48, borderRadius: 8 }}
                 />
                 <div>
@@ -191,7 +191,8 @@ export default function ContentUserPostDetails() {
                   <div style={{ marginBottom: 8, whiteSpace: "pre-wrap" }}>{post.text}</div>
                 ) : null}
                 <div style={{ fontSize: 12, color: "#666" }}>
-                  {post.createdAt ? new Date(post.createdAt).toLocaleString() : ""}
+                  {post.createdAt ? new Date(post.createdAt).toLocaleString() : ""} ·{" "}
+                  {post.likeCount ? post.likeCount : 0} likes
                 </div>
               </div>
 
@@ -220,8 +221,14 @@ export default function ContentUserPostDetails() {
                 <div>
                   {post.reports && post.reports.length ? (
                     post.reports.map((r: any) => (
-                      <div key={r._id ?? r.id} style={{ fontSize: 13 }}>
-                        {r.name ?? r.userName ?? r.userId}
+                      <div
+                        key={r.userName + r.reportedAt}
+                        style={{ fontSize: 13, display: "flex" }}
+                      >
+                        <div style={{ width: "40%" }}>
+                          username: {r.userName ?? r.name ?? r.userId}
+                        </div>
+                        <div style={{ width: "60%" }}>reason: {r.reason}</div>
                       </div>
                     ))
                   ) : (

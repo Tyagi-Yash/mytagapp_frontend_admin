@@ -3,6 +3,7 @@ import Layout from "./Layout";
 import Login from "../pages/Login/Login";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import UsersPage from "../pages/Users/Users";
+import UserDetails from "../pages/Users/UserDetails";
 import Market from "../pages/Market/Market";
 import MarketDetails from "../pages/Market/MarketDetails";
 import Job from "../pages/Job/Job";
@@ -25,6 +26,7 @@ import SubAdminDetails from "../pages/SubAdmin/SubAdminDetails";
 import SubAdminRoles from "../pages/SubAdmin/SubAdminRoles";
 import { useAuth } from "../features/auth/hooks/useAuth";
 import NotFound from "../pages/NotFound/NotFound";
+import UserFlagDetails from "../pages/Users/UserFlagDetails";
 
 function RequireAuth() {
   const { isAuthenticated } = useAuth();
@@ -42,6 +44,8 @@ export default function AppRoutes() {
           <Route path="/dashboard" element={<Dashboard />} />
 
           <Route path="/users" element={<UsersPage />} />
+          <Route path="/users/details/:id" element={<UserDetails />} />
+          <Route path="/users/report/:id" element={<UserFlagDetails />} />
 
           <Route path="/content" element={<ContentManagement />} />
           <Route path="/content/:id" element={<ContentUserDetails />} />

@@ -39,9 +39,14 @@ export default function UserTable({
                 <td>{String(serial).padStart(2, "0")}</td>
                 <td style={{ textTransform: "capitalize" }}>{u.type}</td>
                 <td>
-                  <Link to={`/users`} className="ms-0">
+                  <Link to={`/users/details/${u.id}`} className="ms-0">
                     {u.name}
                   </Link>
+                  {u.isReported && (
+                    <Link to={`/users/report/${u.id}`} className="ms-0">
+                      <i className="fa-solid fa-flag"></i>
+                    </Link>
+                  )}
                 </td>
                 <td>{u.email}</td>
                 <td>{u.phone ?? "—"}</td>

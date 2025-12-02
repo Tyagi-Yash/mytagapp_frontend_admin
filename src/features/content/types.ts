@@ -60,7 +60,7 @@ export type PostDetail = {
     name?: string;
     userId?: string;
     userName?: string;
-    avatar?: string;
+    profileImage?: string;
   };
   imageUrl: string[];
   videoUrl: string[];
@@ -71,6 +71,7 @@ export type PostDetail = {
   caption?: string;
   views?: number;
   likes?: any[];
+  likeCount?: string;
   comments: any[];
   createdAt?: string;
   updatedAt?: string;

@@ -1,5 +1,11 @@
 import { baseApi } from "../api/baseApi";
-import type { User, GetUsersParams, UsersPagedResp } from "./types";
+import type {
+  User,
+  GetUsersParams,
+  UsersPagedResp,
+  UserProfileDetail,
+  UserReportDetail,
+} from "./types";
 
 export const usersApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -33,6 +39,7 @@ export const usersApi = baseApi.injectEndpoints({
           location: u.institution ?? undefined,
           status: u.status === "active",
           rawStatus: u.status ?? "inactive",
+          isReported: u.isReported ?? "false",
         }));
 
         const pagination = response?.pagination ?? {
@@ -53,7 +60,7 @@ export const usersApi = baseApi.injectEndpoints({
           : [{ type: "User", id: "LIST" }],
     }),
 
-    updateUser: builder.mutation<User, { id: string; status: "active" | "inactive" }>({
+    updateUser: builder.mutation<User, { id: string; status: "active" | "inactive" | "blocked" }>({
       query: ({ id, status }) => ({
         url: `/admin/user/updatestatus?userId=${id}`,
         method: "PUT",
@@ -76,7 +83,99 @@ export const usersApi = baseApi.injectEndpoints({
         { type: "User", id: "LIST" },
       ],
     }),
+
+    getReportedUserDetail: builder.query<UserProfileDetail, string>({
+      query: (userId) => `/admin/user/reportedUserDetail?userId=${userId}`,
+      transformResponse: (res: any): UserProfileDetail => {
+        const personal = res?.data?.personalData ?? {};
+        const stats = res?.data?.stats ?? {};
+        const analytics = res?.data?.analytics ?? {};
+        const userIntro = personal.userIntro ?? {};
+        const userSummary = personal.userSummary ?? {};
+        const docs = personal.userDocuments ?? {};
+        const experiences = Array.isArray(personal.userExperience) ? personal.userExperience : [];
+        const education = Array.isArray(personal.userEducation) ? personal.userEducation : [];
+
+        const firstExperience = experiences[0] ?? {};
+
+        return {
+          id: userIntro.userId ?? personal.userId ?? personal._id ?? "",
+          fullName: userIntro.fullName ?? "",
+          userType: userIntro.userType,
+          userSubType: userIntro.userSubType,
+          location: firstExperience.location ?? "",
+          phone: userIntro.phone ? String(userIntro.phone) : undefined,
+          email: userIntro.email ?? undefined,
+          about: userSummary.about ?? "",
+          skills: Array.isArray(userSummary.skills) ? userSummary.skills : [],
+          goal: userSummary.goal ?? "",
+          stats: {
+            connections: stats.connections ?? 0,
+            followers: stats.followers ?? 0,
+            following: stats.following ?? 0,
+          },
+          analytics: {
+            totalPosts: analytics.totalPosts ?? 0,
+            totalTextPosts: analytics.totalTextPosts ?? 0,
+            totalReels: analytics.totalReels ?? 0,
+            totalVideos: analytics.totalVideos ?? 0,
+            totalPhotos: analytics.totalPhotos ?? 0,
+            totalReports: analytics.totalReports ?? 0,
+            pinnedPosts: analytics.pinnedPosts ?? 0,
+          },
+          experiences: experiences.map((e: any) => ({
+            title: e.title,
+            employeeType: e.employeeType,
+            companyName: e.companyName,
+            startDate: e.startDate,
+            endDate: e.endDate,
+            location: e.location,
+            description: e.description,
+            isCurrentlyWorking: e.isCurrentlyWorking,
+          })),
+          education,
+          documents: {
+            resume: Array.isArray(docs.resume) ? docs.resume : [],
+            schoolDocuments: Array.isArray(docs.schoolDocuments) ? docs.schoolDocuments : [],
+            otherDocuments: Array.isArray(docs.otherDocuments) ? docs.otherDocuments : [],
+          },
+          raw: res?.data,
+        };
+      },
+      providesTags: (_result, _error, userId) => [{ type: "User" as const, id: userId }],
+    }),
+
+    getUserReportDetail: builder.query<UserReportDetail, string>({
+      query: (userId) => `/admin/user/reportDetail?userId=${userId}`,
+      transformResponse: (res: any): UserReportDetail => {
+        const reportsArr = Array.isArray(res?.reports) ? res.reports : [];
+        return {
+          userId: res?.userId ?? "",
+          totalReports:
+            typeof res?.totalReports === "number" ? res.totalReports : reportsArr.length,
+          reports: reportsArr.map((r: any) => ({
+            id: r._id ?? r.id,
+            reason: r.reason ?? "",
+            reportedAt: r.reportedAt ?? "",
+            reportedBy: {
+              id: r.reportedBy?._id ?? r.reportedBy?.id ?? "",
+              name: r.reportedBy?.name,
+              email: r.reportedBy?.email,
+              userId: r.reportedBy?.userId,
+            },
+          })),
+        };
+      },
+      providesTags: (_result, _error, userId) => [{ type: "User" as const, id: userId }],
+    }),
   }),
+  overrideExisting: false,
 });
 
-export const { useGetUsersPagedQuery, useUpdateUserMutation, useDeleteUserMutation } = usersApi;
+export const {
+  useGetUsersPagedQuery,
+  useUpdateUserMutation,
+  useDeleteUserMutation,
+  useGetReportedUserDetailQuery,
+  useGetUserReportDetailQuery,
+} = usersApi;

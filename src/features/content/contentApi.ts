@@ -58,8 +58,6 @@ export const contentApi = baseApi.injectEndpoints({
         return `/admin/content/listofUserReportedPost?${qs.toString()}`;
       },
       transformResponse: (res: any, _meta, arg): Paged<PostSummary> => {
-        // res shape based on your sample:
-        // { code: 200, totalPosts: number, page: number, posts: [...] }
         const postsArr: any[] = Array.isArray(res?.posts) ? res.posts : [];
         const items: PostSummary[] = postsArr.map((p) => ({
           id: p._id ?? p.id,
@@ -71,7 +69,7 @@ export const contentApi = baseApi.injectEndpoints({
             (p.imageUrl && p.imageUrl.length ? p.imageUrl[0] : undefined) ??
             (p.videoUrl && p.videoUrl.length ? p.videoUrl[0] : undefined),
           isReported: !!p.hasReports || (Array.isArray(p.reports) && p.reports.length > 0),
-          raw: p, // optional: include raw backend object if you need it in UI
+          // raw: p, // optional: include raw backend object if you need it in UI
         }));
 
         const total =
@@ -116,6 +114,7 @@ export const contentApi = baseApi.injectEndpoints({
             name: p.userId?.name ?? undefined,
             userId: p.userId?.userId ?? undefined,
             userName: p.userId?.userName ?? undefined,
+            profileImage: p.userId?.profileImage ?? undefined,
           },
           imageUrl: Array.isArray(p.imageUrl) ? p.imageUrl : [],
           videoUrl: Array.isArray(p.videoUrl) ? p.videoUrl : [],
@@ -126,6 +125,7 @@ export const contentApi = baseApi.injectEndpoints({
           caption: p.caption ?? undefined,
           views: p.views ?? 0,
           likes: Array.isArray(p.likes) ? p.likes : [],
+          likeCount: p.likeCount,
           comments: Array.isArray(p.comments) ? p.comments : [],
           createdAt: p.createdAt,
           updatedAt: p.updatedAt,
@@ -133,7 +133,7 @@ export const contentApi = baseApi.injectEndpoints({
           hasReports: !!p.hasReports,
           isDeleted: !!p.isDeleted,
           isRepost: !!p.isRepost,
-          raw: p,
+          // raw: p,
         };
       },
       providesTags: (_result, _error, arg) => [{ type: "Post" as const, id: arg }],
