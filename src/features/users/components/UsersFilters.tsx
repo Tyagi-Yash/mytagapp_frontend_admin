@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useDebounce } from "../../../hooks/useDebounce";
 
 export default function UsersFilters({
@@ -19,12 +20,11 @@ export default function UsersFilters({
   const localStatus = initial?.status;
   const localSort = initial?.sortBy;
 
-  // local uncontrolled state is kept in parent; UsersFilters acts as controlled inputs via callbacks
-  // But we still debounce the visible search: parent stores the visible value via onSearchChange
-  const debounced = useDebounce(localSearch, 1000);
+  const debounced = useDebounce(localSearch, 800);
 
-  // If you want to auto-apply on pause, you could call onApply here:
-  // useEffect(() => { onApply({ search: debounced, status: localStatus, sortBy: localSort }); }, [debounced]);
+  useEffect(() => {
+    onApply({ search: debounced });
+  }, [debounced]);
 
   return (
     <div className="FilterArea">

@@ -64,7 +64,7 @@ export default function Sidebar() {
           </li>
 
           <li>
-            <NavLink to="/sub-admin-roles">
+            <NavLink to="/sub-admin">
               <span>
                 <i className="fa-solid fa-users" />
               </span>

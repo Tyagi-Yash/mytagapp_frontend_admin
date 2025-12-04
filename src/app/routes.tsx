@@ -13,13 +13,6 @@ import EventDetails from "../pages/Event/EventDetails";
 import ContentManagement from "../pages/Content/ContentManagement";
 import ContentUserDetails from "../pages/Content/ContentUserDetails";
 import ContentUserPostDetails from "../pages/Content/ContentUserPostDetails";
-import CategoryDetails from "../pages/Category/CategoryDetails";
-import FlagDetails from "../pages/Flag/FlagDetails";
-import CompanyUserDetails from "../pages/Company/CompanyUserDetails";
-import CollegeUserDetails from "../pages/College/CollegeUserDetails";
-import ProfessionalUserDetails from "../pages/Professional/ProfessionalUserDetails";
-import StudentUserDetails from "../pages/Student/StudentUserDetails";
-import TeacherUserDetails from "../pages/Teacher/TeacherUserDetails";
 import Notifications from "../pages/Notifications/Notifications";
 import NotificationDetails from "../pages/Notifications/NotificationDetails";
 import SubAdminDetails from "../pages/SubAdmin/SubAdminDetails";
@@ -27,6 +20,9 @@ import SubAdminRoles from "../pages/SubAdmin/SubAdminRoles";
 import { useAuth } from "../features/auth/hooks/useAuth";
 import NotFound from "../pages/NotFound/NotFound";
 import UserFlagDetails from "../pages/Users/UserFlagDetails";
+import SubAdminManagement from "../pages/SubAdmin/SubAdminManagement";
+import SubAdminRolesAdd from "../pages/SubAdmin/SubAdminRolesAdd";
+import SubAdminRolesEdit from "../pages/SubAdmin/SubAdminRolesEdit";
 
 function RequireAuth() {
   const { isAuthenticated } = useAuth();
@@ -60,19 +56,14 @@ export default function AppRoutes() {
           <Route path="/event" element={<Event />} />
           <Route path="/event/:id" element={<EventDetails />} />
 
-          <Route path="/sub-admin-roles" element={<SubAdminRoles />} />
-          <Route path="/sub-admin-roles/:id" element={<SubAdminDetails />} />
+          <Route path="/sub-admin" element={<SubAdminRoles />} />
+          <Route path="/sub-admin/:role" element={<SubAdminManagement />} />
+          <Route path="/sub-admin/add/:role" element={<SubAdminRolesAdd />} />
+          <Route path="/sub-admin/edit/:id" element={<SubAdminRolesEdit />} />
+          <Route path="/sub-admin/details/:id" element={<SubAdminDetails />} />
 
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/notifications/:id" element={<NotificationDetails />} />
-
-          <Route path="/category/:id" element={<CategoryDetails />} />
-          <Route path="/flag/:id" element={<FlagDetails />} />
-          <Route path="/company/:id" element={<CompanyUserDetails />} />
-          <Route path="/college/:id" element={<CollegeUserDetails />} />
-          <Route path="/professional/:id" element={<ProfessionalUserDetails />} />
-          <Route path="/student/:id" element={<StudentUserDetails />} />
-          <Route path="/teacher/:id" element={<TeacherUserDetails />} />
         </Route>
       </Route>
 

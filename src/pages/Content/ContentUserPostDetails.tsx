@@ -17,15 +17,16 @@ export default function ContentUserPostDetails() {
     null
   );
 
-  // build a unified media list: images first then videos
   const media = useMemo(() => {
     if (!post) return [];
     const imgs = Array.isArray(post.imageUrl) ? post.imageUrl : [];
     const vids = Array.isArray(post.videoUrl) ? post.videoUrl : [];
-    // represent media as { type: 'image'|'video', url }
+    const reel = Array.isArray(post.reelUrl) ? post.reelUrl : [];
+
     return [
       ...imgs.map((u) => ({ type: "image" as const, url: u })),
       ...vids.map((u) => ({ type: "video" as const, url: u })),
+      ...reel.map((u) => ({ type: "video" as const, url: u })),
     ];
   }, [post]);
 
@@ -35,7 +36,7 @@ export default function ContentUserPostDetails() {
     } else if (mediaIndex >= media.length) {
       setMediaIndex(media.length - 1);
     }
-  }, [media.length, mediaIndex]);
+  }, [media.length]);
 
   const goPrev = () => setMediaIndex((i) => (i - 1 + media.length) % Math.max(1, media.length));
   const goNext = () => setMediaIndex((i) => (i + 1) % Math.max(1, media.length));

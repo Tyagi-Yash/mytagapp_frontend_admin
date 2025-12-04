@@ -39,7 +39,7 @@ export default function UserFlagDetails() {
   const { totalReports, reports } = data;
 
   const handleSendWarning = () => {
-    toast.success("Notification has been sent successfully");
+    // toast.success("Notification has been sent successfully");
   };
 
   const handleBlockUser = async () => {
