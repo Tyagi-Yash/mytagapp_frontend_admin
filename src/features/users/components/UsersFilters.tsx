@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDebounce } from "../../../hooks/useDebounce";
+import { filterByOption, sortByOption, sortByUsersOption } from "../constants";
 
 export default function UsersFilters({
   initial,
@@ -47,10 +48,11 @@ export default function UsersFilters({
             value={localStatus ?? "all"}
             onChange={(e) => onStatusChange(e.target.value === "all" ? undefined : e.target.value)}
           >
-            <option value="all">All</option>
-            <option value="blocked">blocked users</option>
-            <option value="inactive">inactive users</option>
-            <option value="active">active users</option>
+            {filterByOption.map((f) => (
+              <option key={f.value} value={f.value}>
+                {f.key}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -61,9 +63,11 @@ export default function UsersFilters({
             value={localSort ?? ""}
             onChange={(e) => onSortChange(e.target.value === "" ? undefined : e.target.value)}
           >
-            <option value="">Select </option>
-            <option value="latest">latest</option>
-            <option value="oldest">oldest</option>
+            {sortByOption.map((f) => (
+              <option key={f.value} value={f.value}>
+                {f.key}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -94,13 +98,11 @@ export default function UsersFilters({
         <div className="form-group">
           <label>Sort By Users</label>
           <select className="form-control">
-            <option>Select </option>
-            <option>students</option>
-            <option>professional</option>
-            <option>teachers</option>
-            <option>college</option>
-            <option>company</option>
-            <option>schools</option>
+            {sortByUsersOption.map((f) => (
+              <option key={f.value} value={f.value}>
+                {f.key}
+              </option>
+            ))}
           </select>
         </div>
       </div>

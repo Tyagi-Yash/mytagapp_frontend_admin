@@ -14,7 +14,7 @@ export default function PaginationControls({
   const pages = Array.from({ length: Math.max(1, totalPages) });
 
   return (
-    <div className="paginationMain" style={{ display: "flex", gap: 12, alignItems: "center" }}>
+    <div className="paginationMain">
       <select
         className="form-control"
         value={pageSize}
@@ -41,10 +41,7 @@ export default function PaginationControls({
           </button>
         ))}
 
-        <button
-          disabled={currentPage === totalPages}
-          onClick={() => onPageChange(currentPage + 1)}
-        >
+        <button disabled={currentPage === totalPages} onClick={() => onPageChange(currentPage + 1)}>
           Next
         </button>
       </div>

@@ -64,10 +64,8 @@ export const contentApi = baseApi.injectEndpoints({
           postId: p._id ?? p.postId ?? p.displayId ?? p.id,
           type: p.postType ?? "post",
           postedAt: p.createdAt ?? p.updatedAt ?? "",
-          // choose thumbnail: first image or first frame in video? Use imageUrl first then video/thumbnail fallback
           thumbnail: p.imageUrl && p.imageUrl.length ? p.imageUrl[0] : undefined,
           isReported: !!p.hasReports || (Array.isArray(p.reports) && p.reports.length > 0),
-          // raw: p, // optional: include raw backend object if you need it in UI
         }));
 
         const total =

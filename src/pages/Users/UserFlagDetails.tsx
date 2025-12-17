@@ -1,6 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useGetUserReportDetailQuery, useUpdateUserMutation } from "../../features/users/usersApi";
+import type { UserReportDetail } from "../../features/users/types";
+import ReportedSummary from "../../features/users/components/user report details/ReportedSummary";
+import PreviousNotifications from "../../features/users/components/user report details/PreviousNotifications";
+import ReportingUsersList from "../../features/users/components/user report details/ReportingUsersList";
+import ReportActions from "../../features/users/components/user report details/ReportActions";
 
 export default function UserFlagDetails() {
   const { id } = useParams<{ id: string }>();
@@ -19,7 +24,6 @@ export default function UserFlagDetails() {
       </div>
     );
   }
-
   if (isLoading) {
     return (
       <div className="WrapperArea">
@@ -27,7 +31,6 @@ export default function UserFlagDetails() {
       </div>
     );
   }
-
   if (isError || !data) {
     return (
       <div className="WrapperArea">
@@ -36,7 +39,7 @@ export default function UserFlagDetails() {
     );
   }
 
-  const { totalReports, reports } = data;
+  const { totalReports, reports } = data as UserReportDetail;
 
   const handleSendWarning = () => {
     // toast.success("Notification has been sent successfully");
@@ -63,83 +66,14 @@ export default function UserFlagDetails() {
         </div>
 
         <div className="Small-Wrapper pb-0">
-          <div className="InformationBox">
-            <h3>Reported</h3>
-            <div className="Informations">
-              <div className="ProfileInfo">
-                <article>
-                  <aside>
-                    <p>
-                      <strong>Number of Reports </strong>
-                      <span>{totalReports}</span>
-                    </p>
-                  </aside>
-                </article>
-              </div>
-            </div>
-          </div>
-
-          <div className="InformationBox">
-            <h3>Previous Notification</h3>
-            <div className="Informations">
-              <div className="ProfileInfo">
-                <article>
-                  <aside style={{ width: "100%" }}>
-                    <p>
-                      <span style={{ width: "100%" }}>
-                        No previous warning notification data available.
-                      </span>
-                    </p>
-                  </aside>
-                </article>
-              </div>
-            </div>
-          </div>
-
-          <div className="InformationBox">
-            <h3>Reporting Users</h3>
-            <div className="Informations">
-              <div className="ProfileInfo">
-                <article>
-                  <aside>
-                    {reports.map((r) => (
-                      <p key={r.id}>
-                        <strong>Username</strong>
-                        <span>
-                          {r.reportedBy.name ??
-                            r.reportedBy.userId ??
-                            r.reportedBy.email ??
-                            "Unknown"}
-                        </span>
-                      </p>
-                    ))}
-                  </aside>
-                  <aside>
-                    {reports.map((r) => (
-                      <p key={r.id}>
-                        <strong>Reason for reporting</strong>
-                        <span>{r.reason || "—"}</span>
-                      </p>
-                    ))}
-                  </aside>
-                </article>
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-3">
-            <button className="Button" type="button" onClick={handleSendWarning}>
-              Send a Warning Notification
-            </button>
-            <button
-              className="Button Cancel"
-              type="button"
-              onClick={handleBlockUser}
-              disabled={isBlocking}
-            >
-              {isBlocking ? "Blocking..." : "Block User"}
-            </button>
-          </div>
+          <ReportedSummary totalReports={totalReports} />
+          <PreviousNotifications />
+          <ReportingUsersList reports={reports} />
+          <ReportActions
+            onSendWarning={handleSendWarning}
+            onBlockUser={handleBlockUser}
+            isBlocking={isBlocking}
+          />
         </div>
       </div>
     </div>

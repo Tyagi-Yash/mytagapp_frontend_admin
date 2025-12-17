@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import type { User, Pagination } from "../../users/types";
+import { rowNames } from "../constants";
 
 export default function UserTable({
   data,
@@ -21,13 +22,9 @@ export default function UserTable({
       <table>
         <thead>
           <tr>
-            <th>S.No.</th>
-            <th>User Type</th>
-            <th>Name</th>
-            <th>E-mail address</th>
-            <th>Phone Number</th>
-            <th>Location</th>
-            <th>Action</th>
+            {rowNames.map((n) => (
+              <th key={n}>{n}</th>
+            ))}
           </tr>
         </thead>
 

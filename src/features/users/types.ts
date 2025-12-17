@@ -101,3 +101,69 @@ export interface UserReportDetail {
   totalReports: number;
   reports: UserReportItem[];
 }
+
+export type UserStats = {
+  connections?: number;
+  followers?: number;
+  following?: number;
+};
+
+export type UserAnalytics = {
+  totalPosts?: number;
+  totalTextPosts?: number;
+  totalVideos?: number;
+  totalReels?: number;
+  totalPhotos?: number;
+  totalReports?: number;
+  pinnedPosts?: number;
+};
+
+export type UserExperience = {
+  employeeType?: string;
+  isCurrentlyWorking?: boolean;
+  location?: string;
+  title?: string;
+  startDate?: string | null;
+  endDate?: string | null;
+};
+
+export type UserEducation = {
+  education?: string;
+  educationType?: string;
+  schoolName?: string;
+  schoolLocation?: string;
+  startDate?: string | null;
+  endDate?: string | null;
+  passingGrade?: string;
+};
+
+export type UserDocuments = {
+  resume?: string[];
+  otherDocuments?: string[];
+};
+
+export type ReportedBy = {
+  name?: string | null;
+  userId?: string | null;
+  email?: string | null;
+};
+
+export type Report = {
+  id: string;
+  reason?: string | null;
+  reportedBy: ReportedBy;
+};
+
+export type ReportingUsersListProps = {
+  reports: Report[];
+};
+
+export type ReportedSummaryProps = {
+  totalReports: number;
+};
+
+export type ReportActionsProps = {
+  onSendWarning: () => void;
+  onBlockUser: () => void;
+  isBlocking: boolean;
+};

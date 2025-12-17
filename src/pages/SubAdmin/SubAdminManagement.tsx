@@ -104,18 +104,10 @@ export default function SubAdminManagement() {
                             <span className="slider" />
                           </label>
 
-                          <Link
-                            className="Green"
-                            to={`/sub-admin/edit/${s.id}`}
-                            // state={{ id: s.id }}
-                          >
+                          <Link className="Green" to={`/sub-admin/edit/${s.id}`}>
                             <i className="fa-regular fa-pen-to-square" />
                           </Link>
-                          <Link
-                            className="Blue"
-                            to={`/sub-admin/details/${s.id}`}
-                            // state={{ id: s.id }}
-                          >
+                          <Link className="Blue" to={`/sub-admin/details/${s.id}`}>
                             <i className="fa-regular fa-eye" />
                           </Link>
                           <a
