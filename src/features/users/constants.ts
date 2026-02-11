@@ -23,6 +23,7 @@ export const rowNames = [
   "S.No.",
   "User Type",
   "Name",
+  "User Name",
   "E-mail address",
   "Phone Number",
   "Location",

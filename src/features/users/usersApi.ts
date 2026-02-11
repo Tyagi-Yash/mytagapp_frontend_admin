@@ -34,6 +34,7 @@ export const usersApi = baseApi.injectEndpoints({
           id: u._id ?? u.id,
           type: u.userSubType ?? u.userType ?? "student",
           name: u.name,
+          userName: u.userName,
           email: u.email,
           phone: u.phone ? String(u.phone) : undefined,
           location: u.institution ?? undefined,

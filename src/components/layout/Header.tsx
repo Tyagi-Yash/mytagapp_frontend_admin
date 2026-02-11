@@ -1,40 +1,47 @@
-import userImg from "../../assets/images/user.png";
+import administrator from "../../assets/images/administrator.png";
+import logo from "../../assets/images/konnect logo.png";
+import { useState } from "react";
+import Logout from "./Logout";
+
 export default function Header() {
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+
   return (
     <div className="Header">
       <div className="Logo">
-        <h6>Logo</h6>
+        <img src={logo} alt="logo" />
       </div>
 
       <div className="Navigation">
         <div className="Avater">
-          <a href="javascript:void(0);">
+          <button>
             <figure>
-              <img src={userImg} alt="avatar" />
+              <img src={administrator} alt="avatar" />
             </figure>
             Admin
-          </a>
+          </button>
           <ul>
             <li>
               <figure>
-                <img src={userImg} alt="avatar" />
+                <img src={administrator} alt="avatar" />
               </figure>
               <h4>
                 Admin <span>Administrator</span>
               </h4>
             </li>
             <li>
-              <a>
+              <button onClick={() => setIsLogoutModalOpen(true)}>
                 <span>
                   <i className="fa fa-sign-out" />
                 </span>
                 Logout
-              </a>
+              </button>
             </li>
           </ul>
         </div>
         <div className="clear" />
       </div>
+      {isLogoutModalOpen && <Logout onClose={() => setIsLogoutModalOpen(false)} />}
     </div>
   );
 }

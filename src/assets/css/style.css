@@ -568,14 +568,14 @@ input[type="date"] {
   width: 235px;
   background-color: #ffffff;
   text-align: center;
-  padding: 20px 0;
+  /* padding: 20px 0; */
   float: left;
   height: 60px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
-.Header .Logo img {
+/* .Header .Logo img {
   width: 80px;
-}
+} */
 .Header .Navigation {
   transition: all 0.2s ease;
   margin-left: 235px;
@@ -596,6 +596,20 @@ input[type="date"] {
   color: #000;
 }
 .Header .Navigation .Avater a figure {
+  width: 35px;
+  border-radius: 50%;
+  margin: 0 15px 0 0;
+  overflow: hidden;
+}
+.Header .Navigation .Avater button {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #000;
+  border: none;
+  background-color: #ffffff;
+}
+.Header .Navigation .Avater button figure {
   width: 35px;
   border-radius: 50%;
   margin: 0 15px 0 0;
@@ -656,6 +670,21 @@ input[type="date"] {
   margin: 0 10px 0 0;
 }
 .Header .Navigation .Avater ul li a:hover {
+  background-color: var(--brandColor);
+  color: #fff;
+}
+.Header .Navigation .Avater ul li button {
+  color: #4e4e4e;
+  padding: 10px 20px;
+  font-weight: 400;
+  transition: 0.5s all ease-in-out;
+  border: none;
+  width: 100%;
+}
+.Header .Navigation .Avater ul li button span {
+  margin: 0 10px 0 0;
+}
+.Header .Navigation .Avater ul li button:hover {
   background-color: var(--brandColor);
   color: #fff;
 }
@@ -728,6 +757,9 @@ input[type="date"] {
   color: black;
   font-weight: 400;
   border: none;
+  width: 100%;
+  display: flex;
+  background-color: #ffffff;
 }
 .SidenavBar ul li button span {
   font-size: 15px;

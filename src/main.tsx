@@ -5,9 +5,9 @@ import AppProviders from "./app/AppProviders";
 import "./assets/css/style.css";
 
 createRoot(document.getElementById("root")!).render(
-  <BrowserRouter basename="/MyTag_Admin/">
+  <BrowserRouter basename="/KonnectX_Admin/">
     <AppProviders>
       <App />
     </AppProviders>
-  </BrowserRouter>
+  </BrowserRouter>,
 );

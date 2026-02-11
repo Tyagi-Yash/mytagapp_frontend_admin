@@ -1,11 +1,12 @@
 import LoginForm from "../../features/auth/LoginForm";
+import logo from "../../assets/images/konnect logo.png";
 
 export default function Login() {
   return (
     <div className="LoginArea">
       <div className="LoginBox">
         <div className="LoginLeft">
-          <h2>Logo</h2>
+          <img src={logo} alt="logo" />
           <h3>
             <span>Login your account</span>
           </h3>

@@ -1,11 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import logoutImg from "../../assets/images/logout.svg";
+import { useDispatch } from "react-redux";
+import { clearAuth } from "../../features/auth/authSlice";
 
 export default function Logout({ onClose }: { onClose: () => void }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleLogout = () => {
     localStorage.removeItem("token");
+    dispatch(clearAuth());
     navigate("/login", { replace: true });
   };
   return (

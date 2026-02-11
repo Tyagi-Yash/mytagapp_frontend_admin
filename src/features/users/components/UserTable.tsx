@@ -45,6 +45,7 @@ export default function UserTable({
                     </Link>
                   )}
                 </td>
+                <td>{u.userName}</td>
                 <td>{u.email}</td>
                 <td>{u.phone ?? "—"}</td>
                 <td>{u.location ?? "—"}</td>
