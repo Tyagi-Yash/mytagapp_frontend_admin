@@ -37,30 +37,36 @@ export default function Sidebar() {
           </li>
 
           <li>
-            <NavLink to="/market">
+            <button>
+              {/* <NavLink to="/market"> */}
               <span>
                 <i className="fa-solid fa-store" />
               </span>
               Marketplace Management
-            </NavLink>
+              {/* </NavLink> */}
+            </button>
           </li>
 
           <li>
-            <NavLink to="/job">
+            <button>
+              {/* <NavLink to="/job"> */}
               <span>
                 <i className="fa-solid fa-user-doctor" />
               </span>
               Job Management
-            </NavLink>
+              {/* </NavLink> */}
+            </button>
           </li>
 
           <li>
-            <NavLink to="/event">
+            <button>
+              {/* <NavLink to="/event"> */}
               <span>
                 <i className="fa fa-industry" />
               </span>
               Event Management
-            </NavLink>
+              {/* </NavLink> */}
+            </button>
           </li>
 
           <li>
@@ -73,12 +79,14 @@ export default function Sidebar() {
           </li>
 
           <li>
-            <NavLink to="/notifications">
+            <button>
+              {/* <NavLink to="/notifications"> */}
               <span>
                 <i className="fa-solid fa-bell" />
               </span>
               Notification
-            </NavLink>
+              {/* </NavLink> */}
+            </button>
           </li>
 
           <li>

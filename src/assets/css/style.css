@@ -573,9 +573,10 @@ input[type="date"] {
   height: 60px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
-/* .Header .Logo img {
-  width: 80px;
-} */
+.Header .Logo img {
+  padding-top: 5px;
+  max-width: 80%;
+}
 .Header .Navigation {
   transition: all 0.2s ease;
   margin-left: 235px;
@@ -716,7 +717,7 @@ input[type="date"] {
 .SidenavBar {
   height: calc(100% - 60px);
   position: fixed;
-  width: 235px;
+  width: 240px;
   top: 60px;
   padding: 0;
   overflow: auto;
@@ -747,6 +748,7 @@ input[type="date"] {
   left: 20px;
 }
 .SidenavBar ul li button {
+  border: none;
   display: block;
   cursor: pointer;
   padding: 13px 20px 13px 45px;
@@ -756,7 +758,6 @@ input[type="date"] {
   border-bottom: 1px solid #ddd;
   color: black;
   font-weight: 400;
-  border: none;
   width: 100%;
   display: flex;
   background-color: #ffffff;

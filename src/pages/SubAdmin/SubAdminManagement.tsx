@@ -48,9 +48,9 @@ export default function SubAdminManagement() {
             </div>
 
             <div className="FilterRight">
-              <Link className="TitleLink" to={`/sub-admin/add/${roleName}`}>
+              {/* <Link className="TitleLink" to={`/sub-admin/add/${roleName}`}>
                 Add Sub Admin
-              </Link>
+              </Link> */}
               <button
                 className="Back"
                 onClick={() => navigate("/sub-admin")}
@@ -104,9 +104,9 @@ export default function SubAdminManagement() {
                             <span className="slider" />
                           </label>
 
-                          <Link className="Green" to={`/sub-admin/edit/${s.id}`}>
+                          {/* <Link className="Green" to={`/sub-admin/edit/${s.id}`}>
                             <i className="fa-regular fa-pen-to-square" />
-                          </Link>
+                          </Link> */}
                           <Link className="Blue" to={`/sub-admin/details/${s.id}`}>
                             <i className="fa-regular fa-eye" />
                           </Link>
