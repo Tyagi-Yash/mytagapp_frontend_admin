@@ -290,7 +290,7 @@ input[type="date"] {
 }
 .LoginArea .LoginBox .LoginLeft {
   background-color: #fff;
-  padding: 65px 50px;
+  padding: 40px 50px;
   max-width: 500px;
   width: 100%;
   border-radius: 10px;
@@ -565,10 +565,9 @@ input[type="date"] {
   z-index: 9;
 }
 .Header .Logo {
-  width: 235px;
+  width: 240px;
   background-color: #ffffff;
   text-align: center;
-  /* padding: 20px 0; */
   float: left;
   height: 60px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
@@ -2517,4 +2516,28 @@ table img {
 .access-checkbox input {
   height: 18px;
   width: 18px;
+}
+
+.LoginLegalLinks {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.LoginLegalLinks a {
+  text-decoration: none;
+  color: #0b0fff;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.LoginLegalLinks a:hover {
+  color: #483ffc;
+  text-decoration: underline;
+}
+
+.LoginLegalLinks .divider {
+  margin: 0 8px;
+  color: #9ca3af;
 }

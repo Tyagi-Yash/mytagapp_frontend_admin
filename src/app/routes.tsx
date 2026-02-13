@@ -23,6 +23,8 @@ import UserFlagDetails from "../pages/Users/UserFlagDetails";
 import SubAdminManagement from "../pages/SubAdmin/SubAdminManagement";
 import SubAdminRolesAdd from "../pages/SubAdmin/SubAdminRolesAdd";
 import SubAdminRolesEdit from "../pages/SubAdmin/SubAdminRolesEdit";
+import PrivacyPolicy from "../pages/static content/PrivacyPolicy";
+import TermsOfService from "../pages/static content/TermsOfService";
 
 function RequireAuth() {
   const { isAuthenticated } = useAuth();
@@ -34,6 +36,8 @@ export default function AppRoutes() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<Navigate to="/login" replace />} />
+      <Route path="privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="terms-and-conditions" element={<TermsOfService />} />
 
       <Route element={<RequireAuth />}>
         <Route element={<Layout />}>

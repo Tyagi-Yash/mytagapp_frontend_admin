@@ -1,0 +1,97 @@
+.StaticPage {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  background-color: #f5f7fb;
+  color: #2d2d2d;
+  padding: 60px 20px;
+}
+
+.StaticPage main {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 60px;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+}
+
+.StaticPage header {
+  text-align: center;
+  margin-bottom: 50px;
+  background-color: #9eb1ff;
+  padding: 40px;
+}
+
+.StaticPage header h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+.StaticPage header p {
+  margin: 6px 0;
+  color: #000000;
+  font-size: 0.95rem;
+}
+
+.StaticPage .effective-date {
+  font-size: 0.85rem;
+  color: #000000;
+}
+
+.StaticPage .description section {
+  margin-bottom: 45px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.StaticPage .description section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.StaticPage .description h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: #1f2937;
+  border-left: 4px solid #6366f1;
+  padding-left: 14px;
+}
+
+.StaticPage .description p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 14px;
+  color: #4b5563;
+}
+
+.StaticPage .description ul {
+  padding-left: 22px;
+  margin-top: 10px;
+}
+
+.StaticPage .description li {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  line-height: 1.7;
+  color: #374151;
+}
+@media (max-width: 768px) {
+  .StaticPage {
+    padding: 40px 15px;
+  }
+
+  .StaticPage main {
+    padding: 35px 20px;
+  }
+
+  .StaticPage header h1 {
+    font-size: 2rem;
+  }
+
+  .StaticPage .description h2 {
+    font-size: 1.1rem;
+  }
+}

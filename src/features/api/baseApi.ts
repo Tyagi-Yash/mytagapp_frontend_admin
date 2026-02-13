@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type { RootState } from "../../app/store";
 
-export const API_BASE = "http://15.206.16.230:4003/api/v1";
+export const API_BASE = "https://konnectx.app/api/v1";
 
 export const baseApi = createApi({
   reducerPath: "baseApi",
@@ -15,6 +15,17 @@ export const baseApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ["User", "Auth", "Market", "Job", "Event", "Content", "ReportedUser", "Post", "Role","SubAdmin"],
+  tagTypes: [
+    "User",
+    "Auth",
+    "Market",
+    "Job",
+    "Event",
+    "Content",
+    "ReportedUser",
+    "Post",
+    "Role",
+    "SubAdmin",
+  ],
   endpoints: () => ({}),
 });

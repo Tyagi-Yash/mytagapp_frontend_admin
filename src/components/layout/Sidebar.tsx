@@ -70,12 +70,14 @@ export default function Sidebar() {
           </li>
 
           <li>
-            <NavLink to="/sub-admin">
+            <button>
+              {/* <NavLink to="/sub-admin"> */}
               <span>
                 <i className="fa-solid fa-users" />
               </span>
               Sub-Admin Management
-            </NavLink>
+              {/* </NavLink> */}
+            </button>
           </li>
 
           <li>
