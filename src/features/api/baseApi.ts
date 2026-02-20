@@ -26,6 +26,7 @@ export const baseApi = createApi({
     "Post",
     "Role",
     "SubAdmin",
+    "StaticContent",
   ],
   endpoints: () => ({}),
 });

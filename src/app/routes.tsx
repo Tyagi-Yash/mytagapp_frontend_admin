@@ -25,6 +25,7 @@ import SubAdminRolesAdd from "../pages/SubAdmin/SubAdminRolesAdd";
 import SubAdminRolesEdit from "../pages/SubAdmin/SubAdminRolesEdit";
 import PrivacyPolicy from "../pages/static content/PrivacyPolicy";
 import TermsOfService from "../pages/static content/TermsOfService";
+import StaticContent from "../pages/static content/StaticContent";
 
 function RequireAuth() {
   const { isAuthenticated } = useAuth();
@@ -68,6 +69,8 @@ export default function AppRoutes() {
 
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/notifications/:id" element={<NotificationDetails />} />
+
+          <Route path="/static-content" element={<StaticContent />} />
         </Route>
       </Route>
 

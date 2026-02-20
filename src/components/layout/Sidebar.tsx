@@ -92,6 +92,15 @@ export default function Sidebar() {
           </li>
 
           <li>
+            <NavLink to="/static-content">
+              <span>
+                <i className="fa-solid fa-users" />
+              </span>
+              Static Content
+            </NavLink>
+          </li>
+
+          <li>
             <button onClick={() => setIsLogoutModalOpen(true)}>
               <span>
                 <i className="fa fa-sign-out" />

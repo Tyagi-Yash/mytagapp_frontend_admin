@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDebounce } from "../../../hooks/useDebounce";
-import { filterByOption, sortByOption, sortByUsersOption } from "../constants";
+import { filterByOption, sortByOption } from "../constants";
 
 export default function UsersFilters({
   initial,
@@ -94,7 +94,7 @@ export default function UsersFilters({
         </div>
       </div>
 
-      <div className="FilterRight">
+      {/* <div className="FilterRight">
         <div className="form-group">
           <label>Sort By Users</label>
           <select className="form-control">
@@ -105,7 +105,7 @@ export default function UsersFilters({
             ))}
           </select>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
