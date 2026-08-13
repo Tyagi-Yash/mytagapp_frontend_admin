@@ -1,6 +1,6 @@
 export const filterByOption = [
   { key: "All", value: "all" },
-  { key: "blocked users", value: "blocked" },
+  // { key: "blocked users", value: "blocked" },
   { key: "inactive users", value: "inactive" },
   { key: "active users", value: "active" },
 ];

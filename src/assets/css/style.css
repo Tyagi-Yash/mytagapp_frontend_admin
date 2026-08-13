@@ -1051,9 +1051,9 @@ button.Back {
   font-size: 14px;
   display: inline-block;
 }
-.TableList table tr td:last-child button:hover {
+/* .TableList table tr td:last-child button:hover {
   color: #000;
-}
+} */
 
 .TableList table tr:nth-child(even) {
   font-weight: 500;
@@ -1166,7 +1166,6 @@ button.Back {
 .TableList table tr td .Actions button.Orange {
   background-color: #df9919;
 }
-
 .Actions a.Red {
   color: #e21818;
 }

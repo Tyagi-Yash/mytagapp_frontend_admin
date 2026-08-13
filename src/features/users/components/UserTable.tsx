@@ -6,12 +6,12 @@ export default function UserTable({
   data,
   pagination,
   onToggleActive,
-  onDeleteClick,
+  onBlockClick,
 }: {
   data: User[];
   pagination: Pagination;
   onToggleActive: (id: string, v: boolean) => void;
-  onDeleteClick: (id: string) => void;
+  onBlockClick: (id: string) => void;
 }) {
   if (!data?.length) {
     return <div className="TableList">No users found</div>;
@@ -62,11 +62,21 @@ export default function UserTable({
 
                     <div>
                       <button
-                        className="Red"
-                        onClick={() => onDeleteClick(u.id)}
-                        aria-label={`Delete ${u.name}`}
+                        className="delete btn btn-danger btn-sm"
+                        onClick={() => onBlockClick(u.id)}
+                        aria-label={`Block ${u.name}`}
+                        style={{
+                          fontSize: '12px',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '4px',
+                          fontWeight: '600',
+                          padding: '3px 12px',
+                          borderRadius: '6px'
+                        }}
                       >
-                        <i className="fa fa-trash" />
+                        <i className="fa fa-ban" style={{ fontSize: '11px' }} /> 
+                        Block
                       </button>
                     </div>
                   </div>

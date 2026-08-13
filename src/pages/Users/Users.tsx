@@ -1,6 +1,7 @@
 import { useState } from "react";
 import UserTable from "../../features/users/components/UserTable";
 import DeleteModal from "../../components/common/DeleteModal";
+import ConfirmModal from "../../components/common/ConfirmModal";
 import UsersFilters from "../../features/users/components/UsersFilters";
 import PaginationControls from "../../features/users/components/PaginationControls";
 import { useUsers } from "../../features/users/hooks/useUsers";
@@ -34,6 +35,9 @@ export default function UsersPage() {
 
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isStatusModalOpen, setIsStatusModalOpen] = useState(false);
+  const [statusTargetUser, setStatusTargetUser] = useState<string | null>(null);
+  const [statusTargetValue, setStatusTargetValue] = useState<boolean | null>(null);
 
   const handleApply = (applied: { search?: string; status?: string; sortBy?: string }) => {
     dispatch(
@@ -78,8 +82,12 @@ export default function UsersPage() {
             <UserTable
               data={users}
               pagination={pagination}
-              onToggleActive={toggleActive}
-              onDeleteClick={(id) => {
+              onToggleActive={(id, val) => {
+                setStatusTargetUser(id);
+                setStatusTargetValue(val);
+                setIsStatusModalOpen(true);
+              }}
+              onBlockClick={(id) => {
                 setSelectedUser(id);
                 setIsDeleteModalOpen(true);
               }}
@@ -98,14 +106,32 @@ export default function UsersPage() {
 
       {isDeleteModalOpen && (
         <DeleteModal
-          title="Delete"
-          message="Are you sure you want to delete this user?"
+          title="Block User"
+          message="If you block this user all data related to this user will be deleted permanently"
           onConfirm={async () => {
             await deleteUser(selectedUser);
             setIsDeleteModalOpen(false);
             setSelectedUser(null);
           }}
           onClose={() => setIsDeleteModalOpen(false)}
+        />
+      )}
+
+      {isStatusModalOpen && statusTargetUser !== null && statusTargetValue !== null && (
+        <ConfirmModal
+          title="Change User Status"
+          message={`Are you sure you want to ${statusTargetValue ? "activate" : "deactivate"} this user?`}
+          onConfirm={async () => {
+            await toggleActive(statusTargetUser, statusTargetValue);
+            setIsStatusModalOpen(false);
+            setStatusTargetUser(null);
+            setStatusTargetValue(null);
+          }}
+          onClose={() => {
+            setIsStatusModalOpen(false);
+            setStatusTargetUser(null);
+            setStatusTargetValue(null);
+          }}
         />
       )}
     </>
